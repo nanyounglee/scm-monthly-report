@@ -250,9 +250,9 @@
       <div class="kpi-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>품질이슈 RAW 데이터 보기</div>
     </div>
     <div class="kpi-card" onclick="openAmountModal('supplier')">
-      <div class="kpi-label">월 매입금액 <span style="font-size:9px;color:#aaa;font-weight:400;">5월 VAT포함</span></div>
-      <div class="kpi-val" style="font-size:26px;">328,708,382</div>
-      <div class="kpi-trend trend-down">↓ 전월(4월) 대비 −45.1%</div>
+      <div class="kpi-label">월 매입금액 <span style="font-size:9px;color:#aaa;font-weight:400;">5월 세금계산서·VAT별도</span></div>
+      <div class="kpi-val" style="font-size:26px;">452,541,205</div>
+      <div class="kpi-trend trend-down">↓ 전월(4월) 대비 −31.8%</div>
       <div class="kpi-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>매입금액 상세 분석 보기</div>
     </div>
     <div class="kpi-card" onclick="openModal('품질이슈')">
@@ -296,7 +296,7 @@
             <div class="preview-kpi-item"><div class="pkpi-num">835</div><div class="pkpi-label">발주 진행 Task</div><div class="pkpi-trend" style="color:#1D4ED8;">↓ −14.9%</div></div>
             <div class="preview-kpi-item"><div class="pkpi-num">1.2%</div><div class="pkpi-label">미입하율</div><div class="pkpi-trend" style="color:#059669;">10건</div></div>
             <div class="preview-kpi-item"><div class="pkpi-num">10건</div><div class="pkpi-label">품질이슈</div><div class="pkpi-trend" style="color:#059669;">↓ −16건</div></div>
-            <div class="preview-kpi-item"><div class="pkpi-num" style="font-size:13px;">3.3억</div><div class="pkpi-label">월 매입금액</div><div class="pkpi-trend" style="color:#1D4ED8;">↓ −45%</div></div>
+            <div class="preview-kpi-item"><div class="pkpi-num" style="font-size:13px;">4.5억</div><div class="pkpi-label">월 매입금액</div><div class="pkpi-trend" style="color:#1D4ED8;">↓ −32%</div></div>
           </div>
         </div>
       </div>
@@ -821,7 +821,7 @@ function renderBody() {
     <div class="modal-header">
       <div>
         <div class="modal-title">월 매입금액 상세 분석 · 5월 2026</div>
-        <div class="modal-sub">출처: KPI_발주_RAW(2026).csv · 공급망_RAW(2026).csv · 5월 결제금액 기준 | 총 지출액(VAT포함)</div>
+        <div class="modal-sub">출처: KPI_발주_RAW(2026).csv · 공급망_RAW(2026).csv · 세금계산서 작성월 5월 기준 | 공급가액(VAT별도)</div>
       </div>
       <button class="modal-close" onclick="closeAmountModal()">✕</button>
     </div>
@@ -904,40 +904,40 @@ const PURCHASE_RAW = {
 
 const AMOUNT_RAW = {
   supplier: [
-    {supplier:"(주)승화파트너스",amount:33493520,count:30,type:"패브릭"},
-    {supplier:"엠알오즈(MROZ)",amount:31342983,count:42,type:"—"},
-    {supplier:"(주) 모나미",amount:24768458,count:3,type:"—"},
-    {supplier:"마이 패스포트(Mai Passport)",amount:22650375,count:1,type:"패브릭"},
-    {supplier:"하이온",amount:16500000,count:2,type:"—"},
-    {supplier:"주식회사 세라노",amount:14233450,count:6,type:"패브릭"},
-    {supplier:"(주)청산인쇄",amount:13979570,count:33,type:"—"},
-    {supplier:"주식회사 더블에이치",amount:13947800,count:4,type:"방향"},
-    {supplier:"(주)쉔코리아",amount:11206300,count:17,type:"—"},
-    {supplier:"주식회사 모아패키지",amount:10818071,count:10,type:"—"}
+    {supplier:"(주)루메나",amount:45281977,count:6,type:"테크"},
+    {supplier:"주식회사 꾸띠잔홀딩스",amount:39435000,count:8,type:"드링크웨어"},
+    {supplier:"(주)승화파트너스",amount:34783183,count:31,type:"패브릭"},
+    {supplier:"엠알오즈(MROZ)",amount:26278300,count:39,type:"피규어"},
+    {supplier:"주식회사 에벤에셀기업",amount:24013500,count:21,type:"드링크웨어"},
+    {supplier:"마이 패스포트(Mai Passport)",amount:20551250,count:1,type:"패브릭"},
+    {supplier:"(주)청산인쇄",amount:20456700,count:31,type:"옵셋인쇄"},
+    {supplier:"서울디지털인쇄협동조합",amount:18547410,count:312,type:"디지털인쇄"},
+    {supplier:"아인 디스트리뷰션",amount:17400000,count:1,type:"드링크웨어"},
+    {supplier:"유어백",amount:15780650,count:6,type:"패브릭"}
   ],
   type: [
-    {type:"패브릭",amount:88325550,count:50},
-    {type:"테크",amount:16288550,count:21},
-    {type:"방향",amount:13890800,count:2},
-    {type:"가죽가공",amount:11091960,count:13},
-    {type:"생활용품",amount:10772630,count:12},
-    {type:"실크인쇄",amount:10674125,count:36},
-    {type:"아크릴가공",amount:9517287,count:15},
-    {type:"드링크웨어",amount:6419900,count:12},
-    {type:"칠도금",amount:5140520,count:15},
-    {type:"디지털인쇄",amount:4826592,count:10}
+    {type:"패브릭",amount:110186133,count:77},
+    {type:"테크",amount:89311732,count:49},
+    {type:"드링크웨어",amount:82278772,count:35},
+    {type:"옵셋인쇄",amount:47040860,count:52},
+    {type:"피규어",amount:30169300,count:42},
+    {type:"디지털인쇄",amount:22005330,count:319},
+    {type:"실크인쇄",amount:12259950,count:50},
+    {type:"사무용품",amount:11899292,count:14},
+    {type:"가죽가공",amount:10615600,count:16},
+    {type:"생활용품",amount:9831391,count:13}
   ],
   product: [
-    {product:"몰스킨노트(블랙/룰드/하드/L)",amount:22711458,qty:902},
-    {product:"더블업트래블파우치+인쇄",amount:22650375,qty:2005},
-    {product:"데일리짐색",amount:16889487,qty:4896},
-    {product:"H18(C타입_화이트)",amount:16500000,qty:3000},
-    {product:"클래시차량용방향제(블랙)",amount:13890800,qty:1804},
-    {product:"브랜디드피규어",amount:11735830,qty:3051},
-    {product:"브랜디드피규어키링",amount:9722366,qty:1571},
-    {product:"포시즌 티셔츠+인쇄",amount:9239485,qty:953},
-    {product:"스타일수면안대",amount:7850700,qty:1461},
-    {product:"슬림터보선풍기(화이트/베이직)",amount:6600000,qty:1000}
+    {product:"실크(스탠딩 휴대용 선풍기)",amount:45281977,qty:2545},
+    {product:"매트블랙텀블러",amount:35550000,qty:5000},
+    {product:"더블업트래블파우치+인쇄",amount:20551250,qty:2005},
+    {product:"밀크에코컵",amount:17400000,qty:2900},
+    {product:"데일리짐색",amount:16526409,qty:2587},
+    {product:"브랜디드피규어",amount:10076900,qty:3051},
+    {product:"H18(C타입_화이트)",amount:10000000,qty:2000},
+    {product:"포켓마켓백",amount:9502650,qty:1708},
+    {product:"브랜디드피규어키링",amount:8722900,qty:1571},
+    {product:"스탠리데일리텀블러(매트블랙)",amount:8678400,qty:339}
   ]
 };
 
@@ -1046,11 +1046,11 @@ function renderAmountTabs() {
 }
 function renderAmountBody() {
   const body = document.getElementById('amountBody');
-  const totalAmt = 328708382;
+  const totalAmt = 452541205;
   if (currentAmountTab === 'supplier') {
     const maxA = AMOUNT_RAW.supplier[0].amount;
-    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 총 지출액(VAT포함) 기준 · 협력사별 Top 10</div>
-      <table class="m-table"><thead><tr><th>#</th><th>협력사</th><th>업체유형</th><th>매입금액(VAT포함)</th><th>발주건수</th><th>금액 비율</th></tr></thead>
+    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 세금계산서 작성월 기준 · 공급가액(VAT별도) · 협력사별 Top 10</div>
+      <table class="m-table"><thead><tr><th>#</th><th>협력사</th><th>업체유형</th><th>매입금액(VAT별도)</th><th>발주건수</th><th>금액 비율</th></tr></thead>
       <tbody>${AMOUNT_RAW.supplier.map((r,i)=>`<tr>
         <td style="color:var(--muted);font-weight:700">${i+1}</td>
         <td class="bold">${r.supplier}</td>
@@ -1059,11 +1059,11 @@ function renderAmountBody() {
         <td style="font-size:12px">${r.count}건</td>
         <td style="min-width:130px"><div style="display:flex;align-items:center;gap:6px"><div style="flex:1;height:6px;background:var(--line);border-radius:3px"><div style="height:100%;width:${Math.round(r.amount/maxA*100)}%;background:var(--green);border-radius:3px"></div></div><span style="font-size:10px;color:var(--muted);white-space:nowrap">${(r.amount/totalAmt*100).toFixed(1)}%</span></div></td>
       </tr>`).join('')}</tbody></table>
-      <div class="modal-source">📂 출처: KPI_발주_RAW(2026).csv + 공급망_RAW(2026).csv — 수주처×업태 조인 | 5월 전체 328,708,382원</div>`;
+      <div class="modal-source">📂 출처: KPI_발주_RAW(2026).csv + 공급망_RAW(2026).csv — 수주처×업태 조인 | 세금계산서 5월 작성분 공급가액 합계 452,541,205원(VAT별도, 복수월 표기분 1/2 안분)</div>`;
   } else if (currentAmountTab === 'type') {
     const maxA = AMOUNT_RAW.type[0].amount;
     const tc = {패브릭:'#1D4ED8',테크:'#7C3AED',방향:'#059669',가죽가공:'#92400E',생활용품:'#0891B2',실크인쇄:'#DC2626',아크릴가공:'#D97706',드링크웨어:'#0D9488',칠도금:'#4B5563',디지털인쇄:'#BE185D'};
-    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 업체 유형(업태)별 매입금액 합계 · 공급망_RAW 업태 필드 기준</div>
+    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 세금계산서 작성월 기준 · 공급가액(VAT별도) · 업체 유형(업태)별 합계 · 공급망_RAW 업태 필드 기준</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">${AMOUNT_RAW.type.map(r=>`
         <div style="background:var(--bg2);border-radius:6px;padding:14px 16px">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
@@ -1077,8 +1077,8 @@ function renderAmountBody() {
       <div class="modal-source">📂 출처: 공급망_RAW(2026).csv 업태 + KPI_발주_RAW(2026).csv 수주처 조인 | 업태 분류는 공급망_RAW 기준 (이전 버전 참조)</div>`;
   } else if (currentAmountTab === 'product') {
     const maxA = AMOUNT_RAW.product[0].amount;
-    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 총 지출액(VAT포함) 기준 · 제품(산출물)별 Top 10</div>
-      <table class="m-table"><thead><tr><th>#</th><th>제품(산출물)</th><th>매입금액(VAT포함)</th><th>발주수량</th><th>단가(추정)</th><th>금액 비율</th></tr></thead>
+    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 세금계산서 작성월 기준 · 공급가액(VAT별도) · 제품(산출물)별 Top 10</div>
+      <table class="m-table"><thead><tr><th>#</th><th>제품(산출물)</th><th>매입금액(VAT별도)</th><th>발주수량</th><th>단가(추정)</th><th>금액 비율</th></tr></thead>
       <tbody>${AMOUNT_RAW.product.map((r,i)=>`<tr>
         <td style="color:var(--muted);font-weight:700">${i+1}</td>
         <td class="bold">${r.product}</td>
