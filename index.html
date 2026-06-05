@@ -931,14 +931,24 @@ const PURCHASE_RAW = {
   item_top10: [
     {item:"Solid커스텀G형박스",qty:16550,amount:1199000},
     {item:"커버(브랜드-잇_인쇄포함)",qty:16450,amount:273000},
-    {item:"풀커버스티치노트(옵셋인쇄)",qty:16000,amount:0},
     {item:"페이퍼샤쉐커버",qty:4900,amount:2227000},
     {item:"데일리짐색",qty:4896,amount:15254079},
     {item:"사각스티커(샤쉐_낱장재단)",qty:4510,amount:819500},
     {item:"UV(스펙트럼 컬러펜)",qty:4192,amount:0},
     {item:"배경지(펜류)",qty:4080,amount:1136200},
     {item:"사각스티커(핸디링 미니 선풍기)",qty:3600,amount:427400},
-    {item:"UV(핸디링 미니 선풍기)",qty:3428,amount:0}
+    {item:"UV(핸디링 미니 선풍기)",qty:3428,amount:0},
+    {item:"배경지(기본)",qty:3230,amount:940000},
+    {item:"배경지(아임히어 리플렉터 키링)",qty:3210,amount:926500},
+    {item:"브랜디드피규어",qty:3051,amount:10076900},
+    {item:"실크(스탠딩 휴대용 선풍기)",qty:2517,amount:45281977},
+    {item:"사각스티커",qty:2332,amount:481540},
+    {item:"사각스티커(더블업 트래블 파우치__S)",qty:2100,amount:378000},
+    {item:"데스크테리어 매트",qty:2007,amount:3363400},
+    {item:"더블업트래블파우치+인쇄",qty:2005,amount:20551250},
+    {item:"배경지(키링)",qty:1670,amount:481800},
+    {item:"브랜디드피규어키링",qty:1571,amount:8722900},
+    {item:"주의사항표기택(페이퍼 샤쉐_골든뱀부)",qty:1570,amount:140100}
   ],
   item_bot10: [
     {item:"H18(C타입_화이트)",qty:0,amount:0,zero:true},
@@ -950,7 +960,17 @@ const PURCHASE_RAW = {
     {item:"EVA파우치실리콘링(화이트)",qty:0,amount:0,zero:true},
     {item:"UV(버티컬 무선충전패드)",qty:2,amount:0,zero:false},
     {item:"볼마커(자유형.40x40이내.1-4색)",qty:2,amount:180000,zero:false},
-    {item:"미르텀블러(화이트/16oz)",qty:3,amount:63545,zero:false}
+    {item:"미르텀블러(화이트/16oz)",qty:3,amount:63545,zero:false},
+    {item:"미르텀블러(블랙/16oz)",qty:3,amount:63545,zero:false},
+    {item:"모먼트골드스파클",qty:6,amount:0,zero:false},
+    {item:"후드스트링(후드집업)",qty:50,amount:281000,zero:false},
+    {item:"실크(아쿠아 스노클링 마스크)",qty:50,amount:0,zero:false},
+    {item:"실크(펄프박스_리드)",qty:50,amount:0,zero:false},
+    {item:"데일리칫솔살균기",qty:51,amount:610145,zero:false},
+    {item:"레이저(MiiR 텀블러)",qty:51,amount:76500,zero:false},
+    {item:"미르텀블러(블랙12oz)",qty:51,amount:992182,zero:false},
+    {item:"심볼 아크릴 트로피",qty:52,amount:330200,zero:false},
+    {item:"웜업 스트링 후드집업",qty:54,amount:965600,zero:false}
   ]
 };
 
@@ -1011,8 +1031,8 @@ function switchPurchaseTab(tab) {
   currentPurchaseTab = tab; renderPurchaseTabs(); renderPurchaseBody();
 }
 function renderPurchaseTabs() {
-  const tabs = {amount:'매입금액 순위',top10:'발주량 Top10',bot10:'발주량 Bottom10'};
-  const counts = {amount:20,top10:10,bot10:10};
+  const tabs = {amount:'매입금액 순위',top10:'발주량 Top20',bot10:'발주량 Bottom20'};
+  const counts = {amount:20,top10:PURCHASE_RAW.item_top10.length,bot10:PURCHASE_RAW.item_bot10.length};
   document.getElementById('purchaseTabs').innerHTML = Object.keys(tabs).map(k =>
     `<div class="modal-tab${currentPurchaseTab===k?' active':''}" onclick="switchPurchaseTab('${k}')">${tabs[k]} <span class="tab-count">${counts[k]}</span></div>`
   ).join('');
@@ -1035,7 +1055,7 @@ function renderPurchaseBody() {
       </tr>`).join('')}</tbody></table>
       <div class="modal-source">📂 출처: KPI_발주_RAW(2026).csv — 공급가액(VAT별도) 기준 | 5월 재고생산 제외 합계 289,488,773원</div>`;
   } else if (currentPurchaseTab === 'top10') {
-    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 발주지시수량 합계 기준 · 재고생산 제외 · 전체 굿즈 산출물 중 Top 10</div>
+    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 과업지시일자 기준 · 재고생산 제외 · 매입금액 없는 항목은 UV 공정 포함 시만 표시 · Top 20</div>
       <table class="m-table"><thead><tr><th>#</th><th>아이템(산출물)</th><th>발주지시수량</th><th>매입금액(VAT별도)</th><th>수량 비율</th></tr></thead>
       <tbody>${PURCHASE_RAW.item_top10.map((r,i)=>`<tr>
         <td style="color:var(--muted);font-weight:700">${i+1}</td>
@@ -1044,10 +1064,9 @@ function renderPurchaseBody() {
         <td style="font-size:12px">${r.amount>0?r.amount.toLocaleString('ko-KR')+'원':'—'}</td>
         <td style="min-width:120px"><div style="display:flex;align-items:center;gap:6px"><div style="flex:1;height:6px;background:var(--line);border-radius:3px"><div style="height:100%;width:${Math.round(r.qty/maxQtyTop*100)}%;background:var(--blue);border-radius:3px"></div></div><span style="font-size:10px;color:var(--muted);white-space:nowrap">${r.qty.toLocaleString()}</span></div></td>
       </tr>`).join('')}</tbody></table>
-      <div style="margin-top:12px;font-size:11px;color:var(--muted);padding:8px 12px;background:var(--blue-light);border-radius:4px;">ℹ 공급가액 0원 항목은 결제 미완료(예정) 또는 무상 제공 건</div>
-      <div class="modal-source">📂 출처: KPI_발주_RAW(2026).csv — 발주지시수량 합계 | 재고생산 제외 · 전체 굿즈 중 Top10</div>`;
+      <div class="modal-source">📂 출처: KPI_발주_RAW(2026).csv — 과업지시일자 2026.5.x 기준 | 재고생산 제외 · 매입금액 없는 비UV 아이템 제외 · Top20</div>`;
   } else if (currentPurchaseTab === 'bot10') {
-    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 발주수량 하위 · 아이템 리스트 등재 후 발주 0건 포함 · Bottom 10</div>
+    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 과업지시일자 기준 · 발주 0건 포함 · Bottom 20</div>
       <table class="m-table"><thead><tr><th>#</th><th>아이템(산출물)</th><th>발주지시수량</th><th>매입금액(VAT별도)</th><th>상태</th></tr></thead>
       <tbody>${PURCHASE_RAW.item_bot10.map((r,i)=>`<tr style="${r.zero?'background:#FFF7ED':''}">
         <td style="color:var(--muted);font-weight:700">${i+1}</td>
@@ -1057,7 +1076,7 @@ function renderPurchaseBody() {
         <td><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;background:${r.zero?'#FEE2E2':'var(--amber-light)'};color:${r.zero?'var(--red)':'var(--amber)'}">${r.zero?'5월 미발주':'소량발주'}</span></td>
       </tr>`).join('')}</tbody></table>
       <div style="margin-top:12px;font-size:11px;color:var(--muted);padding:8px 12px;background:var(--amber-light);border-radius:4px;">⚠ 미발주 아이템(주황 행): 아이템DB에 등재되어 있으나 5월 과업지시일자 기준 발주 실적 없음 | 전체 685종 중 5월 미발주 386종</div>
-      <div class="modal-source">📂 출처: KPI_발주_RAW(2026).csv — 발주지시수량 오름차순 | 5월 미발주 아이템 포함 · Bottom10</div>`;
+      <div class="modal-source">📂 출처: KPI_발주_RAW(2026).csv — 과업지시일자 2026.5.x 기준 · 발주지시수량 오름차순 | 미발주 아이템 포함 · Bottom20</div>`;
   }
 }
 
@@ -1136,4 +1155,4 @@ document.addEventListener('keydown', e => {
 </script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
