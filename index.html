@@ -973,26 +973,26 @@ const PURCHASE_RAW = {
     {item:"UV(와이드클립펜)",freq:6,qty:995,amount:0}
   ],
   item_top10: [
-    {item:"헤링본끈(샤쉐_화이트)",qty:6000,amount:390000},
-    {item:"페이퍼샤쉐커버",qty:4900,amount:2227000},
-    {item:"브랜디드피규어",qty:3051,amount:10076900},
-    {item:"H18(C타입_화이트)",qty:3000,amount:15000000},
-    {item:"실크(스탠딩 휴대용 선풍기)",qty:2517,amount:45281977},
-    {item:"데일리짐색",qty:2386,amount:15254079},
-    {item:"더블업트래블파우치+인쇄",qty:2005,amount:20551250},
-    {item:"스탠드업칫솔(화이트)",qty:2000,amount:3200000},
-    {item:"클래시차량용방향제(블랙)",qty:1804,amount:12628000},
-    {item:"브랜디드피규어키링",qty:1571,amount:8722900},
-    {item:"스타일수면안대",qty:1360,amount:7076000},
-    {item:"애드온뱃지+인쇄",qty:1215,amount:3897200},
-    {item:"슬림터보선풍기",qty:1174,amount:1856400},
-    {item:"아이덴티티스티커팩",qty:1135,amount:1433000},
-    {item:"스펙트럼컬러펜(그린.블랙잉크)",qty:1010,amount:918182},
-    {item:"프라우드투톤명함지갑(블랙)",qty:1000,amount:5200000},
-    {item:"밸류메모큐브(ver2)(점착.S)",qty:1000,amount:1920000},
-    {item:"컬러풀노트패드(블랙_재고)",qty:1000,amount:1871000},
-    {item:"브랜디드타월(그레이)",qty:1000,amount:3100000},
-    {item:"슬림터보선풍기(화이트/베이직)",qty:1000,amount:6000000}
+    {item:"헤링본끈(샤쉐_화이트)",qty:6000,amount:390000,supplier:"유성(구.유성테프)"},
+    {item:"페이퍼샤쉐커버",qty:4900,amount:2227000,supplier:"(주)청산인쇄"},
+    {item:"브랜디드피규어",qty:3051,amount:10076900,supplier:"엠알오즈(MROZ)"},
+    {item:"H18(C타입_화이트)",qty:3000,amount:15000000,supplier:"하이온"},
+    {item:"실크(스탠딩 휴대용 선풍기)",qty:2517,amount:45281977,supplier:"(주)루메나"},
+    {item:"데일리짐색",qty:2386,amount:15254079,supplier:"(주)승화파트너스"},
+    {item:"더블업트래블파우치+인쇄",qty:2005,amount:20551250,supplier:"마이 패스포트(Mai Passport)"},
+    {item:"스탠드업칫솔(화이트)",qty:2000,amount:3200000,supplier:"(주)이케이비전"},
+    {item:"클래시차량용방향제(블랙)",qty:1804,amount:12628000,supplier:"주식회사 더블에이치"},
+    {item:"브랜디드피규어키링",qty:1571,amount:8722900,supplier:"엠알오즈(MROZ)"},
+    {item:"스타일수면안대",qty:1360,amount:7076000,supplier:"주식회사 세라노"},
+    {item:"애드온뱃지+인쇄",qty:1215,amount:3897200,supplier:"(주)홍기씨앤디"},
+    {item:"슬림터보선풍기",qty:1174,amount:1856400,supplier:"(주)쉔코리아, 신명인쇄"},
+    {item:"아이덴티티스티커팩",qty:1135,amount:1433000,supplier:"서울디지털인쇄협동조합"},
+    {item:"스펙트럼컬러펜(그린.블랙잉크)",qty:1010,amount:918182,supplier:"엘바 (ELVA)"},
+    {item:"프라우드투톤명함지갑(블랙)",qty:1000,amount:5200000,supplier:"엔엠텍코리아주식회사"},
+    {item:"밸류메모큐브(ver2)(점착.S)",qty:1000,amount:1920000,supplier:"주식회사 에이엠씨"},
+    {item:"컬러풀노트패드(블랙_재고)",qty:1000,amount:1871000,supplier:"(주)청산인쇄"},
+    {item:"브랜디드타월(그레이)",qty:1000,amount:3100000,supplier:"유노타월 유노디자인"},
+    {item:"슬림터보선풍기(화이트/베이직)",qty:1000,amount:6000000,supplier:"(주)쉔코리아"}
   ],
   item_bot10: [
     {item:"(실크)어텐션스포츠보틀",qty:0,amount:0,zero:true},
@@ -1102,10 +1102,11 @@ function renderPurchaseBody() {
       <div class="modal-source">📂 출처: KPI_발주_RAW(2026).csv — 과업지시일자 2026.5.x · PNA 프로젝트별 매입금액 합산 · 재고생산(PNA38459) 제외 Top20</div>`;
   } else if (currentPurchaseTab === 'top10') {
     body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 과업지시일자 기준 · <strong style="color:var(--blue)">Product Parts(본품) 파츠유형만</strong> · 매입금액>0 · 재고생산 제외 · 전체 22종 Top 20</div>
-      <table class="m-table"><thead><tr><th>#</th><th>아이템(산출물)</th><th>발주지시수량</th><th>매입금액(VAT별도)</th><th>수량 비율</th></tr></thead>
+      <table class="m-table"><thead><tr><th>#</th><th>아이템(산출물)</th><th>수주처</th><th>발주지시수량</th><th>매입금액(VAT별도)</th><th>수량 비율</th></tr></thead>
       <tbody>${PURCHASE_RAW.item_top10.map((r,i)=>`<tr>
         <td style="color:var(--muted);font-weight:700">${i+1}</td>
         <td class="bold">${r.item}</td>
+        <td style="font-size:11px;color:var(--mid)">${r.supplier||'—'}</td>
         <td><span style="font-weight:800;color:var(--blue)">${r.qty.toLocaleString('ko-KR')}개</span></td>
         <td style="font-size:12px">${r.amount>0?r.amount.toLocaleString('ko-KR')+'원':'—'}</td>
         <td style="min-width:120px"><div style="display:flex;align-items:center;gap:6px"><div style="flex:1;height:6px;background:var(--line);border-radius:3px"><div style="height:100%;width:${Math.round(r.qty/maxQtyTop*100)}%;background:var(--blue);border-radius:3px"></div></div><span style="font-size:10px;color:var(--muted);white-space:nowrap">${r.qty.toLocaleString()}</span></div></td>
