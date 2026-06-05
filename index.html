@@ -595,7 +595,10 @@
 
   <div style="margin:40px 0 0;border:1px solid var(--line);border-radius:4px;overflow:hidden;">
     <div style="padding:16px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;">
-      <div style="font-size:10px;font-weight:700;letter-spacing:1px;color:var(--muted);">하도급법 계약 누적 현황 · 4월 기준</div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:1px;color:var(--muted);">하도급법 계약 누적 현황 · 4월 기준</div>
+        <a href="https://docs.google.com/spreadsheets/d/13EwwoamdCJJb00AljfYzNUna9RS2ptIqCJuW3nNKBH4/edit?gid=0#gid=0" target="_blank" style="font-size:10px;font-weight:700;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:3px;">물류위탁계약 체결 현황 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
       <div style="font-size:11px;color:var(--muted);">46 / 154개사<span class="confirm-tag">5월 보관재고 분리 집계 진행 중</span></div>
     </div>
     <div style="padding:20px 24px;display:flex;gap:24px;align-items:center;">
@@ -990,9 +993,9 @@ const AMOUNT_RAW = {
   ]
 };
 
-let currentPurchaseTab = 'count';
+let currentPurchaseTab = 'amount';
 function openPurchaseModal(tab) {
-  currentPurchaseTab = tab || 'count';
+  currentPurchaseTab = tab || 'amount';
   document.getElementById('purchaseModal').classList.add('open');
   document.body.style.overflow = 'hidden';
   renderPurchaseTabs(); renderPurchaseBody();
@@ -1008,33 +1011,18 @@ function switchPurchaseTab(tab) {
   currentPurchaseTab = tab; renderPurchaseTabs(); renderPurchaseBody();
 }
 function renderPurchaseTabs() {
-  const tabs = {count:'발주건수 순위',amount:'매입금액 순위',top10:'발주량 Top10',bot10:'발주량 Bottom10'};
-  const counts = {count:20,amount:20,top10:10,bot10:10};
+  const tabs = {amount:'매입금액 순위',top10:'발주량 Top10',bot10:'발주량 Bottom10'};
+  const counts = {amount:20,top10:10,bot10:10};
   document.getElementById('purchaseTabs').innerHTML = Object.keys(tabs).map(k =>
     `<div class="modal-tab${currentPurchaseTab===k?' active':''}" onclick="switchPurchaseTab('${k}')">${tabs[k]} <span class="tab-count">${counts[k]}</span></div>`
   ).join('');
 }
 function renderPurchaseBody() {
   const body = document.getElementById('purchaseBody');
-  const maxPurchaseQty = PURCHASE_RAW.proj_by_count[0].purchaseQty;
   const maxAmt = PURCHASE_RAW.proj_by_amount[0].amount;
   const maxQtyTop = PURCHASE_RAW.item_top10[0].qty;
   const totalAmtVatEx = 289488773;
-  if (currentPurchaseTab === 'count') {
-    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 과업지시일자 기준 · 재고생산 제외 · 발주수량 = 굿즈수 × 고객지시수량(PNA 최대값) · Top 20</div>
-      <table class="m-table"><thead><tr><th>#</th><th>프로젝트</th><th>코드</th><th>굿즈수</th><th>고객지시수량</th><th>발주수량</th><th>매입금액(VAT별도)</th></tr></thead>
-      <tbody>${PURCHASE_RAW.proj_by_count.map((r,i)=>`<tr>
-        <td style="color:var(--muted);font-weight:700">${i+1}</td>
-        <td class="bold">${r.project}</td>
-        <td style="font-size:11px;color:var(--muted)">${r.code}</td>
-        <td style="font-size:12px;text-align:center">${r.goods}종</td>
-        <td style="font-size:12px;text-align:right">${r.custQty.toLocaleString('ko-KR')}개</td>
-        <td><div style="display:flex;align-items:center;gap:6px"><div style="flex:1;height:6px;background:var(--line);border-radius:3px;min-width:40px"><div style="height:100%;width:${Math.round(r.purchaseQty/maxPurchaseQty*100)}%;background:var(--blue);border-radius:3px"></div></div><span style="font-weight:800;color:var(--blue);white-space:nowrap">${r.purchaseQty.toLocaleString('ko-KR')}개</span></div></td>
-        <td style="font-size:12px">${r.amount>0?r.amount.toLocaleString('ko-KR')+'원':'—'}</td>
-      </tr>`).join('')}</tbody></table>
-      <div style="margin-top:12px;font-size:11px;color:var(--muted);padding:8px 12px;background:var(--blue-light);border-radius:4px;">ℹ 발주수량 = 해당 PNA 내 굿즈 종수 × PNA의 고객지시수량 최대값 | 재고생산(PNA38459) 제외</div>
-      <div class="modal-source">📂 출처: KPI_발주_RAW(2026).csv — 과업지시일자 2026.5.x | 재고생산 제외 792건 · 205프로젝트</div>`;
-  } else if (currentPurchaseTab === 'amount') {
+  if (currentPurchaseTab === 'amount') {
     body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 공급가액(VAT별도) 기준 · 재고생산 제외 · PNA 프로젝트별 · Top 20</div>
       <table class="m-table"><thead><tr><th>#</th><th>프로젝트</th><th>코드</th><th>매입금액(VAT별도)</th><th>발주수량</th><th>금액 비율</th></tr></thead>
       <tbody>${PURCHASE_RAW.proj_by_amount.map((r,i)=>`<tr>
@@ -1148,4 +1136,4 @@ document.addEventListener('keydown', e => {
 </script>
 </body>
 </html>
-                                 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
