@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -138,7 +138,7 @@
   .modal-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);align-items:center;justify-content:center;}
   .modal-overlay.open{display:flex;}
   @keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-  .modal-box{background:#fff;border-radius:8px;width:94vw;max-width:1060px;max-height:88vh;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.25);animation:slideUp .2s ease;}
+  .modal-box{background:#fff;border-radius:8px;width:94vw;max-width:1060px;max-height:88vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.25);animation:slideUp .2s ease;}
   .modal-header{padding:28px 32px 0;display:flex;align-items:flex-start;justify-content:space-between;}
   .modal-title{font-family:'DM Serif Display',serif;font-size:22px;color:var(--black);letter-spacing:-0.5px;}
   .modal-sub{font-size:11px;color:var(--muted);margin-top:5px;}
@@ -929,92 +929,16 @@ const PURCHASE_RAW = {
     {project:"함파트너스",code:"PNA50812",goods:2,custQty:1000,purchaseQty:1033,amount:3377390}
   ],
   item_amtpp: [
-    {item:"실크(스탠딩 휴대용 선풍기)",amount:45281977,qty:2517,freq:5,supplier:"(주)루메나"},
-    {item:"몰스킨노트(블랙/룰드/하드/L)",amount:20646780,qty:902,freq:2,supplier:"(주) 모나미"},
-    {item:"더블업트래블파우치+인쇄",amount:20551250,qty:2005,freq:1,supplier:"마이 패스포트(Mai Passport)"},
-    {item:"데일리짐색",amount:15254079,qty:4896,freq:11,supplier:"(주)승화파트너스"},
-    {item:"브랜디드피규어",amount:10076900,qty:3051,freq:20,supplier:"엠알오즈(MROZ)"},
-    {item:"브랜디드피규어키링",amount:8722900,qty:1571,freq:8,supplier:"엠알오즈(MROZ)"},
-    {item:"포시즌 티셔츠+인쇄",amount:8177350,qty:953,freq:9,supplier:"톰스코리아 주식회사"},
-    {item:"스타일수면안대",amount:7429500,qty:1461,freq:4,supplier:"주식회사 세라노"},
-    {item:"굿이너프 비치타월(인쇄+봉재)",amount:5324000,qty:484,freq:2,supplier:"(주)승화파트너스"},
-    {item:"모바일오피스파우치2.0(블랙)",amount:4875000,qty:275,freq:2,supplier:"키멤버스"},
-    {item:"톤앤톤쿨러백",amount:4591300,qty:274,freq:2,supplier:"유어백"},
-    {item:"로고스트랩파우치+인쇄",amount:4006095,qty:1207,freq:4,supplier:"(주)승화파트너스"},
-    {item:"애드온뱃지+인쇄",amount:3897200,qty:1215,freq:12,supplier:"(주)홍기씨앤디"},
-    {item:"미니멀 스텐머그 +인쇄",amount:3785000,qty:502,freq:2,supplier:"주식회사 꾸띠잔홀딩스"},
-    {item:"데스크테리어 매트",amount:3363400,qty:2007,freq:2,supplier:"가온팩토리"},
-    {item:"하이킹폴딩방석",amount:3097600,qty:704,freq:4,supplier:"(주)승화파트너스"},
-    {item:"브랜드팝키링",amount:2932050,qty:916,freq:5,supplier:"올댓프린팅"},
-    {item:"베이직무선충전마우스패드",amount:2931818,qty:430,freq:4,supplier:"(주)명성"},
-    {item:"괴마옥(인스타 가드닝 키트)",amount:2871000,qty:261,freq:2,supplier:"블록가든"},
-    {item:"카드트레이피규어세트",amount:2676200,qty:664,freq:2,supplier:"엠알오즈(MROZ)"}
+    {item:"실크(스탠딩 휴대용 선풍기)",amount:45281977,qty:2517,freq:5,supplier:"(주)루메나"},{item:"몰스킨노트(블랙/룰드/하드/L)",amount:20646780,qty:902,freq:2,supplier:"(주) 모나미"},{item:"더블업트래블파우치+인쇄",amount:20551250,qty:2005,freq:1,supplier:"마이 패스포트(Mai Passport)"},{item:"데일리짐색",amount:15254079,qty:2386,freq:10,supplier:"(주)승화파트너스"},{item:"브랜디드피규어",amount:10076900,qty:3051,freq:20,supplier:"엠알오즈(MROZ)"},{item:"브랜디드피규어키링",amount:8722900,qty:1571,freq:8,supplier:"엠알오즈(MROZ)"},{item:"포시즌 티셔츠+인쇄",amount:8177350,qty:953,freq:9,supplier:"톰스코리아 주식회사"},{item:"스타일수면안대",amount:7429500,qty:1461,freq:4,supplier:"주식회사 세라노"},{item:"굿이너프 비치타월(인쇄+봉재)",amount:5324000,qty:484,freq:2,supplier:"주식회사 세라노"},{item:"모바일오피스파우치2.0(블랙)",amount:4875000,qty:275,freq:2,supplier:"키멤버스"},{item:"톤앤톤쿨러백",amount:4591300,qty:274,freq:2,supplier:"유어백"},{item:"로고스트랩파우치+인쇄",amount:4006095,qty:705,freq:2,supplier:"(주)승화파트너스"},{item:"애드온뱃지+인쇄",amount:3897200,qty:1215,freq:12,supplier:"(주)홍기씨앤디"},{item:"미니멀 스텐머그 +인쇄",amount:3785000,qty:502,freq:2,supplier:"주식회사 꾸띠잔홀딩스"},{item:"데스크테리어 매트",amount:3363400,qty:502,freq:1,supplier:"가온팩토리"},{item:"하이킹폴딩방석",amount:3097600,qty:704,freq:4,supplier:"(주)승화파트너스"},{item:"브랜드팝키링",amount:2932050,qty:916,freq:5,supplier:"올댓프린팅"},{item:"베이직무선충전마우스패드",amount:2931818,qty:430,freq:4,supplier:"(주)명성"},{item:"괴마옥(인스타 가드닝 키트)",amount:2871000,qty:261,freq:2,supplier:"블록가든"},{item:"카드트레이피규어세트",amount:2676200,qty:664,freq:2,supplier:"엠알오즈(MROZ)"}
   ],
   item_freq: [
-    {item:"배경지(펜류)",freq:21,qty:4080,amount:1136200},
-    {item:"UV(스펙트럼 컬러펜)",freq:20,qty:4192,amount:0},
-    {item:"배경지(기본)",freq:20,qty:3230,amount:940000},
-    {item:"브랜디드피규어",freq:20,qty:3051,amount:10076900},
-    {item:"사각스티커",freq:16,qty:2332,amount:481540},
-    {item:"애드온뱃지+인쇄",freq:12,qty:1215,amount:3897200},
-    {item:"데일리짐색",freq:11,qty:4896,amount:15254079},
-    {item:"배경지(애드온 뱃지)",freq:11,qty:810,amount:243000},
-    {item:"슬림터보선풍기",freq:9,qty:1174,amount:1856400},
-    {item:"포시즌 티셔츠+인쇄",freq:9,qty:953,amount:8177350},
-    {item:"배경지(키링)",freq:8,qty:1670,amount:481800},
-    {item:"브랜디드피규어키링",freq:8,qty:1571,amount:8722900},
-    {item:"웰컴페이퍼(Solid 커스텀 G형 박스_반투명L)",freq:8,qty:1190,amount:389000},
-    {item:"실크(스탠드-업 칫솔_바디)",freq:8,qty:1008,amount:226000},
-    {item:"페이퍼샤쉐커버",freq:7,qty:4900,amount:2227000},
-    {item:"스테이텀블러",freq:7,qty:727,amount:0},
-    {item:"아이덴티티스티커팩",freq:6,qty:1135,amount:1433000},
-    {item:"UV(와이드클립펜)",freq:6,qty:995,amount:0},
-    {item:"임팩트슬로건타월",freq:6,qty:684,amount:2330750},
-    {item:"사각스티커(Solid 커스텀 G형 박스_L)",freq:6,qty:600,amount:192000}
+    {item:"브랜디드피규어",freq:20,qty:3051,amount:10076900},{item:"UV(스펙트럼 컬러펜)",freq:16,qty:2533,amount:0},{item:"애드온뱃지+인쇄",freq:12,qty:1215,amount:3897200},{item:"데일리짐색",freq:11,qty:4896,amount:15254079},{item:"슬림터보선풍기",freq:9,qty:1174,amount:1856400},{item:"포시즌 티셔츠+인쇄",freq:9,qty:953,amount:8177350},{item:"브랜디드피규어키링",freq:8,qty:1571,amount:8722900},{item:"실크(스탠드-업 칫솔_바디)",freq:8,qty:1008,amount:226000},{item:"페이퍼샤쉐커버",freq:7,qty:4900,amount:2227000},{item:"임팩트슬로건타월",freq:6,qty:684,amount:2330750},{item:"UV(와이드클립펜)",freq:6,qty:995,amount:0},{item:"아이덴티티스티커팩",freq:6,qty:1135,amount:1433000},{item:"스테이텀블러",freq:6,qty:725,amount:0},{item:"실크(스탠딩 휴대용 선풍기)",freq:5,qty:2517,amount:45281977},{item:"풀커버스티치노트(디지털인쇄)",freq:5,qty:323,amount:141191},{item:"칠링패드냉각선풍기",freq:5,qty:681,amount:494700},{item:"브랜드팝키링",freq:5,qty:916,amount:2932050},{item:"실크(올웨이즈 양우산)",freq:5,qty:482,amount:1469600},{item:"메시지캐리어파우치",freq:5,qty:667,amount:848909},{item:"커버(브랜드-잇_인쇄포함)",freq:4,qty:16450,amount:273000}
   ],
   item_top10: [
-    {item:"Solid커스텀G형박스",qty:16550,amount:1199000,supplier:"주식회사 모아패키지"},
-    {item:"커버(브랜드-잇_인쇄포함)",qty:16450,amount:273000,supplier:"(주)청산인쇄"},
-    {item:"풀커버스티치노트(옵셋인쇄)",qty:16000,amount:0,supplier:"(주)청산인쇄"},
-    {item:"페이퍼샤쉐커버",qty:4900,amount:2227000,supplier:"(주)청산인쇄"},
-    {item:"데일리짐색",qty:4896,amount:15254079,supplier:"(주)승화파트너스"},
-    {item:"UV(스펙트럼 컬러펜)",qty:4192,amount:0,supplier:"신시어리웨일즈 주식회사"},
-    {item:"UV(핸디링 미니 선풍기)",qty:3428,amount:0,supplier:"신시어리웨일즈 주식회사"},
-    {item:"리플렉터키링",qty:3132,amount:0,supplier:"이지굿스"},
-    {item:"브랜디드피규어",qty:3051,amount:10076900,supplier:"엠알오즈(MROZ)"},
-    {item:"실크(스탠딩 휴대용 선풍기)",qty:2517,amount:45281977,supplier:"(주)루메나"},
-    {item:"데스크테리어 매트",qty:2007,amount:3363400,supplier:"가온팩토리"},
-    {item:"더블업트래블파우치+인쇄",qty:2005,amount:20551250,supplier:"마이 패스포트(Mai Passport)"},
-    {item:"브랜디드피규어키링",qty:1571,amount:8722900,supplier:"엠알오즈(MROZ)"},
-    {item:"스타일수면안대",qty:1461,amount:7429500,supplier:"주식회사 세라노"},
-    {item:"애드온뱃지+인쇄",qty:1215,amount:3897200,supplier:"(주)홍기씨앤디"},
-    {item:"로고스트랩파우치+인쇄",qty:1207,amount:4006095,supplier:"(주)승화파트너스"},
-    {item:"슬림터보선풍기",qty:1174,amount:1856400,supplier:"(주)쉔코리아"},
-    {item:"아이덴티티스티커팩",qty:1135,amount:1433000,supplier:"서울디지털인쇄협동조합"},
-    {item:"샤쉐향(투스칸오렌지)",qty:1020,amount:0,supplier:"주식회사 센트온"},
-    {item:"UV_풀컬러",qty:1014,amount:0,supplier:"신시어리웨일즈 주식회사"}
+    {item:"커버(브랜드-잇_인쇄포함)",qty:16450,amount:273000,supplier:"(주)청산인쇄"},{item:"풀커버스티치노트(옵셋인쇄)",qty:16000,amount:0,supplier:"(주)청산인쇄"},{item:"페이퍼샤쉐커버",qty:4900,amount:2227000,supplier:"(주)청산인쇄"},{item:"데일리짐색",qty:4896,amount:15254079,supplier:"(주)승화파트너스"},{item:"UV(핸디링 미니 선풍기)",qty:3428,amount:0,supplier:"신시어리웨일즈 주식회사"},{item:"리플렉터키링",qty:3132,amount:0,supplier:"이지굿스"},{item:"브랜디드피규어",qty:3051,amount:10076900,supplier:"엠알오즈(MROZ)"},{item:"UV(스펙트럼 컬러펜)",qty:2533,amount:0,supplier:"신시어리웨일즈 주식회사"},{item:"실크(스탠딩 휴대용 선풍기)",qty:2517,amount:45281977,supplier:"(주)루메나"},{item:"데스크테리어 매트",qty:2007,amount:3363400,supplier:"가온팩토리"},{item:"더블업트래블파우치+인쇄",qty:2005,amount:20551250,supplier:"마이 패스포트(Mai Passport)"},{item:"브랜디드피규어키링",qty:1571,amount:8722900,supplier:"엠알오즈(MROZ)"},{item:"스타일수면안대",qty:1461,amount:7429500,supplier:"주식회사 세라노"},{item:"애드온뱃지+인쇄",qty:1215,amount:3897200,supplier:"(주)홍기씨앤디"},{item:"로고스트랩파우치+인쇄",qty:1207,amount:4006095,supplier:"(주)승화파트너스"},{item:"슬림터보선풍기",qty:1174,amount:1856400,supplier:"(주)쉔코리아"},{item:"아이덴티티스티커팩",qty:1135,amount:1433000,supplier:"서울디지털인쇄협동조합"},{item:"샤쉐향(투스칸오렌지)",qty:1020,amount:0,supplier:"주식회사 센트온"},{item:"스펙트럼컬러펜(그린.블랙잉크)",qty:1010,amount:918182,supplier:"엘바 (ELVA)"},{item:"실크(스탠드-업 칫솔_바디)",qty:1008,amount:226000,supplier:"신명인쇄"}
   ],
   item_bot10: [
-    {item:"(실크)어텐션스포츠보틀",qty:0,amount:0,zero:true,supplier:"",goods:"어텐션 스포츠 보틀"},
-    {item:"H18(C타입_네이비)",qty:0,amount:0,zero:true,supplier:"",goods:"핸디링 미니 선풍기"},
-    {item:"Open페이퍼박스(커스텀)",qty:0,amount:0,zero:true,supplier:"",goods:"OPPB"},
-    {item:"UV(그래픽배너 보조배터리_풀컬러)",qty:0,amount:0,zero:true,supplier:"",goods:"그래픽배너 대용량 보조배터리"},
-    {item:"UV(베케이션 여권케이스)",qty:0,amount:0,zero:true,supplier:"",goods:"베케이션 여권케이스"},
-    {item:"UV(슈가케인 펜)",qty:0,amount:0,zero:true,supplier:"",goods:"슈가케인 펜"},
-    {item:"UV(아트워크 레더 다이어리)",qty:0,amount:0,zero:true,supplier:"",goods:"아트워크 레더 다이어리"},
-    {item:"UV(퀵 버튼링 노트_커버)",qty:0,amount:0,zero:true,supplier:"",goods:"퀵 버튼링 노트"},
-    {item:"UV_전면",qty:0,amount:0,zero:true,supplier:"",goods:"히트업 손난로 보조배터리"},
-    {item:"UV_풀컬러_전면",qty:0,amount:0,zero:true,supplier:"",goods:"레더스킨 다이어리"},
-    {item:"골프공(브리지스톤투어비X_화이트)",qty:0,amount:0,zero:true,supplier:"",goods:"에디션 골프공 & 볼마커 6구 세트"},
-    {item:"교정용무선제본(시그니처다이어리)",qty:0,amount:0,zero:true,supplier:"",goods:"시그니처 다이어리"},
-    {item:"굿데이볼캡+인쇄",qty:0,amount:0,zero:true,supplier:"",goods:"굿데이 볼캡"},
-    {item:"그래픽배너대용량보조배터리(블랙)",qty:0,amount:0,zero:true,supplier:"",goods:"그래픽배너 대용량 보조배터리"},
-    {item:"그래픽배너대용량보조배터리(화이트)",qty:0,amount:0,zero:true,supplier:"",goods:"그래픽배너 대용량 보조배터리"},
-    {item:"내지(브랜드-잇_커스텀인쇄)",qty:0,amount:0,zero:true,supplier:"",goods:"브랜드-잇"},
-    {item:"라벨스티커(디퓨저_그린티)",qty:0,amount:0,zero:true,supplier:"",goods:"유니크 디퓨저"},
-    {item:"라벨스티커(디퓨저_모링가)",qty:0,amount:0,zero:true,supplier:"",goods:"유니크 디퓨저"},
-    {item:"라벨스티커(디퓨저_유칼립투스스파)",qty:0,amount:0,zero:true,supplier:"",goods:"유니크 디퓨저"},
-    {item:"라벨스티커(클래시방향제_북스토어)",qty:0,amount:0,zero:true,supplier:"",goods:"클래시 차량용 방향제"}
+    {goods:"Basket 패키지",qty:0,amt:0,zero:true},{goods:"굿데이 볼캡",qty:0,amt:0,zero:true},{goods:"그래픽배너 대용량 보조배터리",qty:0,amt:0,zero:true},{goods:"노트북 스탠드패드",qty:0,amt:0,zero:true},{goods:"라운드 밤부 칫솔",qty:0,amt:0,zero:true},{goods:"라이트 캘린더",qty:0,amt:0,zero:true},{goods:"레더라벨 캠핑체어",qty:0,amt:0,zero:true},{goods:"레디고 런치박스",qty:0,amt:0,zero:true},{goods:"리유저블 캘린더",qty:0,amt:0,zero:true},{goods:"리틀빅 리유저블컵",qty:0,amt:0,zero:true},{goods:"마그넷 오프너",qty:0,amt:0,zero:true},{goods:"모바일 오피스 파우치",qty:0,amt:0,zero:true},{goods:"몰스킨 2026 다이어리",qty:0,amt:0,zero:true},{goods:"밀크 에코컵",qty:0,amt:0,zero:true},{goods:"베케이션 여권케이스",qty:0,amt:0,zero:true},{goods:"브랜디드 노트북백",qty:0,amt:0,zero:true},{goods:"브릭 메모&캘린더 스탠드",qty:0,amt:0,zero:true},{goods:"셀렉티브 전동오프너&와인잔 세트",qty:0,amt:0,zero:true},{goods:"소프트터치 블루투스 키보드",qty:0,amt:0,zero:true},{goods:"슈가케인 펜",qty:0,amt:0,zero:true},{goods:"스탠리 슬림 보틀",qty:0,amt:0,zero:true},{goods:"스테인리스 빨대 세트",qty:0,amt:0,zero:true},{goods:"스트레치 사원증 홀더",qty:0,amt:0,zero:true},{goods:"슬로건 맨투맨",qty:0,amt:0,zero:true},{goods:"심볼 NFC 키링",qty:0,amt:0,zero:true},{goods:"심볼릭 샤프 & 형광펜 세트 | 스테들러",qty:0,amt:0,zero:true},{goods:"아트워크 레더 다이어리",qty:0,amt:0,zero:true},{goods:"어썸그립",qty:0,amt:0,zero:true},{goods:"어텐션 스포츠 보틀",qty:0,amt:0,zero:true},{goods:"에디트 캘린더",qty:0,amt:0,zero:true},{goods:"오아시스 미니 마사지건",qty:0,amt:0,zero:true},{goods:"오토매틱 와인오프너",qty:0,amt:0,zero:true},{goods:"올 블랙 펜",qty:0,amt:0,zero:true},{goods:"올데이 텀블러",qty:0,amt:0,zero:true},{goods:"인마이백 피크닉매트",qty:0,amt:0,zero:true},{goods:"컬러풀 노트패드",qty:0,amt:0,zero:true},{goods:"퀵 버튼링 노트",qty:0,amt:0,zero:true},{goods:"클라우드 피크닉매트",qty:0,amt:0,zero:true},{goods:"트래블 2in1 목베개",qty:0,amt:0,zero:true},{goods:"파워업 PD 충전기 65W",qty:0,amt:0,zero:true},{goods:"페이머스 캡슐보틀",qty:0,amt:0,zero:true},{goods:"페이퍼링 캘린더",qty:0,amt:0,zero:true},{goods:"포터블 피크닉 롤테이블",qty:0,amt:0,zero:true},{goods:"폴더블 텀블러",qty:0,amt:0,zero:true},{goods:"프라우드 메모패드",qty:0,amt:0,zero:true},{goods:"프리미엄 린넨샤쉐",qty:0,amt:0,zero:true},{goods:"플러스 멀티충전 스테이션",qty:0,amt:0,zero:true},{goods:"하이업 노트북 폴딩스탠드",qty:0,amt:0,zero:true},{goods:"홀리데이 네임택",qty:0,amt:0,zero:true},{goods:"히트업 손난로 보조배터리",qty:0,amt:0,zero:true},{goods:"프레젠트 골프공 3구",qty:4,amt:360000,zero:false},{goods:"모뉴먼트 블랙 트로피",qty:19,amt:1808000,zero:false},{goods:"데일리 칫솔살균기 | 아이리버",qty:51,amt:610145,zero:false},{goods:"레더스킨 다이어리",qty:51,amt:137000,zero:false},{goods:"심볼 아크릴 트로피",qty:52,amt:330200,zero:false},{goods:"풀커버 스티치 노트",qty:55,amt:141191,zero:false},{goods:"파카 조터 XL 볼펜",qty:55,amt:1870000,zero:false},{goods:"미스트 워터보틀",qty:56,amt:205000,zero:false},{goods:"MiiR 텀블러",qty:57,amt:1119272,zero:false},{goods:"밸류 무선충전 마우스패드",qty:60,amt:732000,zero:false},{goods:"챔피언 피규어 트로피",qty:94,amt:376000,zero:false},{goods:"뮤지엄 머그",qty:101,amt:119180,zero:false},{goods:"릴리프 눈마사지기",qty:101,amt:2111818,zero:false},{goods:"포시즌 블랭킷",qty:101,amt:909000,zero:false},{goods:"HighLight 슬라이드 지퍼백",qty:101,amt:70400,zero:false},{goods:"굿스타트 슈즈백",qty:101,amt:1272000,zero:false},{goods:"킵세이프 마그넷 배터리 Max",qty:102,amt:899455,zero:false},{goods:"에디션 골프공 & 볼마커 6구 세트",qty:103,amt:416000,zero:false},{goods:"내추럴 노트",qty:103,amt:311000,zero:false},{goods:"웜업 스트링 후드집업",qty:104,amt:1246600,zero:false}
   ]
 };
 
@@ -1032,9 +956,7 @@ const AMOUNT_RAW = {
     {supplier:"서울디지털인쇄협동조합",amount:18547410,count:312,type:"턴키제작"}
   ],
   type: [
-    {type:"턴키제작",amount:308663675,count:570},
-    {type:"외주용역",amount:93278360,count:98},
-    {type:"단순구매",amount:79378400,count:74}
+    {type:"패브릭",amount:110539633,count:78},{type:"드링크웨어",amount:99678772,count:35},{type:"테크",amount:99311732,count:50},{type:"옵셋인쇄",amount:47040860,count:52},{type:"피규어",amount:30169300,count:42},{type:"디지털인쇄",amount:22005330,count:319},{type:"실크인쇄",amount:12259950,count:50},{type:"사무용품",amount:11899292,count:14},{type:"가죽가공",amount:10615600,count:16},{type:"생활용품",amount:9957121,count:15},{type:"아크릴가공",amount:9701530,count:21},{type:"방향",amount:5669200,count:10},{type:"패키지",amount:5163355,count:10},{type:"칠도금",amount:4673200,count:15},{type:"레이저인쇄",amount:1042000,count:7},{type:"UV평판인쇄",amount:1004300,count:3},{type:"종자업",amount:329260,count:4},{type:"세라믹전사인쇄",amount:260000,count:1}
   ],
   product: [
     {product:"실크(스탠딩 휴대용 선풍기)",amount:45281977,qty:2545},
@@ -1068,8 +990,8 @@ function switchPurchaseTab(tab) {
   currentPurchaseTab = tab; renderPurchaseTabs(); renderPurchaseBody();
 }
 function renderPurchaseTabs() {
-  const tabs = {amount:'매입액 Top20 프로젝트',top10:'발주량 Top20',bot10:'발주량 Bottom20',freq:'발주빈도 Top20',amtpp:'매입금액 Top20 제품별'};
-  const counts = {amount:20,top10:PURCHASE_RAW.item_top10.length,bot10:PURCHASE_RAW.item_bot10.length,freq:PURCHASE_RAW.item_freq.length,amtpp:PURCHASE_RAW.item_amtpp.length};
+  const tabs = {amount:'매입액 Top20 프로젝트',top10:'발주량 Top20',bot10:'미발주 현황',freq:'발주빈도 Top20',amtpp:'매입금액 Top20 제품별'};
+  const counts = {amount:20,top10:PURCHASE_RAW.item_top10.length,bot10:PURCHASE_RAW.item_bot10.filter(r=>r.zero).length,freq:PURCHASE_RAW.item_freq.length,amtpp:PURCHASE_RAW.item_amtpp.length};
   document.getElementById('purchaseTabs').innerHTML = Object.keys(tabs).map(k =>
     `<div class="modal-tab${currentPurchaseTab===k?' active':''}" onclick="switchPurchaseTab('${k}')">${tabs[k]} <span class="tab-count">${counts[k]}</span></div>`
   ).join('');
@@ -1082,7 +1004,7 @@ function renderPurchaseBody() {
   if (currentPurchaseTab === 'amount') {
     const maxAmt = PURCHASE_RAW.proj_by_amount[0].amount;
     const totalAmt = PURCHASE_RAW.proj_by_amount.reduce((s,r)=>s+r.amount,0);
-    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 과업지시일자 기준 · PNA 프로젝트별 매입금액 합산 · 재고생산 제외 · Top 20</div>
+    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 과업지시일자 기준 · PNA 프로젝트별 매입금액 합산 · 재고생산 제외 · Product Parts 한정 · Top 20</div>
       <table class="m-table"><thead><tr><th>#</th><th>프로젝트</th><th>코드</th><th>매입금액(VAT별도)</th><th>굿즈 종류</th><th>금액 비율</th></tr></thead>
       <tbody>${PURCHASE_RAW.proj_by_amount.map((r,i)=>`<tr>
         <td style="color:var(--muted);font-weight:700">${i+1}</td>
@@ -1106,18 +1028,31 @@ function renderPurchaseBody() {
       </tr>`).join('')}</tbody></table>
       <div class="modal-source">📂 출처: KPI_발주_RAW(2026).csv — 과업지시일자 2026.5.x 기준 | 단독 Package Parts 제외 · 공급가액 0원 포함 · 재고생산 제외 · 발주지시수량 Top20</div>`;
   } else if (currentPurchaseTab === 'bot10') {
-    body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 과업지시일자 기준 · <strong style="color:var(--amber)">단독 Package Parts 제외</strong> · 재고생산 제외 · 미발주 포함 · 발주지시수량 오름차순 Bottom 20</div>
-      <table class="m-table"><thead><tr><th>#</th><th>아이템(산출물)</th><th>굿즈명</th><th>수주처</th><th>발주지시수량</th><th>매입금액(VAT별도)</th><th>상태</th></tr></thead>
-      <tbody>${PURCHASE_RAW.item_bot10.map((r,i)=>`<tr style="${r.zero?'background:#FFF7ED':''}">
+    const zeroItems = PURCHASE_RAW.item_bot10.filter(r=>r.zero);
+    const lowItems  = PURCHASE_RAW.item_bot10.filter(r=>!r.zero);
+    body.innerHTML = `<div style="margin-bottom:10px;font-size:12px;color:var(--muted)">5월 과업지시일자 기준 · <strong style="color:var(--red)">굿즈명 기준 중복 제거</strong> · Product Parts · 재고생산 제외</div>
+      <div style="display:flex;gap:16px;margin-bottom:14px">
+        <span style="background:#FEE2E2;color:var(--red);font-size:12px;font-weight:700;padding:4px 12px;border-radius:4px">미발주 ${zeroItems.length}종</span>
+        <span style="background:var(--amber-light,#FEF3C7);color:var(--amber,#D97706);font-size:12px;font-weight:700;padding:4px 12px;border-radius:4px">소량발주 ${lowItems.length}종</span>
+      </div>
+      <div style="margin-bottom:8px;font-size:12px;font-weight:700;color:var(--red)">▼ 미발주 전체 (${zeroItems.length}종)</div>
+      <table class="m-table" style="margin-bottom:20px"><thead><tr><th>#</th><th>굿즈명</th><th>5월 발주수량</th><th>상태</th></tr></thead>
+      <tbody>${zeroItems.map((r,i)=>`<tr style="background:#FFF7ED">
         <td style="color:var(--muted);font-weight:700">${i+1}</td>
-        <td class="bold">${r.item}</td>
-        <td style="font-size:11px;color:var(--mid)">${r.goods||'—'}</td>
-        <td style="font-size:11px;color:var(--mid)">${r.zero?'—':r.supplier||'—'}</td>
-        <td><span style="font-weight:800;color:${r.zero?'var(--red)':'var(--amber)'}">${r.zero?'0 (미발주)':r.qty.toLocaleString('ko-KR')+'개'}</span></td>
-        <td style="font-size:12px">${r.amount>0?r.amount.toLocaleString('ko-KR')+'원':'—'}</td>
-        <td><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;background:${r.zero?'#FEE2E2':'var(--amber-light)'};color:${r.zero?'var(--red)':'var(--amber)'}">${r.zero?'5월 미발주':'소량발주'}</span></td>
+        <td class="bold">${r.goods}</td>
+        <td><span style="font-weight:800;color:var(--red)">0개 (미발주)</span></td>
+        <td><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;background:#FEE2E2;color:var(--red)">5월 미발주</span></td>
       </tr>`).join('')}</tbody></table>
-      <div class="modal-source">📂 출처: KPI_발주_RAW(2026).csv × 3.item-아이템등록_NY(2).csv — 과업지시일자 2026.5.x 기준 | 단독 Package Parts 제외 · 재고생산 제외 · 굿즈명=굿즈코드(영문4) 매칭 · 발주지시수량 오름차순 Bottom20</div>`;
+      <div style="margin-bottom:8px;font-size:12px;font-weight:700;color:var(--amber,#D97706)">▼ 소량발주 하위 20종 (발주량 오름차순)</div>
+      <table class="m-table"><thead><tr><th>#</th><th>굿즈명</th><th>5월 발주수량</th><th>매입금액</th><th>상태</th></tr></thead>
+      <tbody>${lowItems.map((r,i)=>`<tr>
+        <td style="color:var(--muted);font-weight:700">${i+1}</td>
+        <td class="bold">${r.goods}</td>
+        <td><span style="font-weight:800;color:var(--amber,#D97706)">${r.qty.toLocaleString('ko-KR')}개</span></td>
+        <td style="font-size:12px">${r.amt>0?r.amt.toLocaleString('ko-KR')+'원':'—'}</td>
+        <td><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;background:var(--amber-light,#FEF3C7);color:var(--amber,#D97706)">소량발주</span></td>
+      </tr>`).join('')}</tbody></table>
+      <div class="modal-source">📂 출처: task-SCMKPI_Raw.csv × 3.item DB — 굿즈코드(영문4) 기준 · Product Parts · 재고생산 제외 · 옵션파츠 1건이라도 발주 시 전체 제외 · 5월 미발주 54종 전체 + 소량발주 하위 20종</div>`;
   } else if (currentPurchaseTab === 'freq') {
     const maxFreq = PURCHASE_RAW.item_freq[0].freq;
     body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 과업지시일자 기준 · 재고생산 제외 · 산출물별 발주 건수(행 기준) 합산 · Top 20</div>
@@ -1130,7 +1065,7 @@ function renderPurchaseBody() {
         <td style="font-size:12px">${r.amount>0?r.amount.toLocaleString('ko-KR')+'원':'—'}</td>
         <td style="min-width:120px"><div style="display:flex;align-items:center;gap:6px"><div style="flex:1;height:6px;background:var(--line);border-radius:3px"><div style="height:100%;width:${Math.round(r.freq/maxFreq*100)}%;background:var(--blue);border-radius:3px"></div></div><span style="font-size:10px;color:var(--muted);white-space:nowrap">${r.freq}건</span></div></td>
       </tr>`).join('')}</tbody></table>
-      <div class="modal-source">📂 출처: KPI_발주_RAW(2026).csv — 과업지시일자 2026.5.x 기준 · 아이템명 있는 행만 · 재고생산 제외 | 전체 340종 중 빈도 Top20</div>`;
+      <div class="modal-source">📂 출처: KPI_발주_RAW(2026).csv — 과업지시일자 2026.5.x 기준 · 아이템명 있는 행만 · 재고생산 제외 | Product Parts 한정 · 417건 중 빈도 Top20</div>`;
   } else if (currentPurchaseTab === 'amtpp') {
     const maxAmt = PURCHASE_RAW.item_amtpp[0].amount;
     body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 과업지시일자 기준 · <strong style="color:var(--green)">Product Parts(본품) 파츠유형만</strong> · 매입금액>0 · 재고생산 제외 · 동일 아이템 발주건수 표시</div>
@@ -1166,7 +1101,7 @@ function switchAmountTab(tab) {
   currentAmountTab = tab; renderAmountTabs(); renderAmountBody();
 }
 function renderAmountTabs() {
-  const tabs = {supplier:'협력사별 Top10',type:'제조유형별',product:'제품별 Top10'};
+  const tabs = {supplier:'협력사별 Top10',type:'업태별',product:'제품별 Top10'};
   const acount = {supplier:AMOUNT_RAW.supplier.length,type:AMOUNT_RAW.type.length,product:AMOUNT_RAW.product.length};
   document.getElementById('amountTabs').innerHTML = Object.keys(tabs).map(k =>
     `<div class="modal-tab${currentAmountTab===k?' active':''}" onclick="switchAmountTab('${k}')">${tabs[k]} <span class="tab-count">${acount[k]}</span></div>`
@@ -1190,7 +1125,7 @@ function renderAmountBody() {
       <div class="modal-source">📂 출처: task-SCMKPI_Raw.csv + 공급망_RAW(2026).csv — 수주처×제조유형 조인 | 세금계산서 5월 작성분 공급가액 합계 481,320,435원(VAT별도, 재고생산 포함)</div>`;
   } else if (currentAmountTab === 'type') {
     const maxA = AMOUNT_RAW.type[0].amount;
-    const tc = {턴키제작:'#1D4ED8',외주용역:'#7C3AED',단순구매:'#059669',기타:'#4B5563'};
+    const tc = {패브릭:'#7C3AED',드링크웨어:'#0891B2',테크:'#1D4ED8',옵셋인쇄:'#059669',피규어:'#D97706',디지털인쇄:'#6366F1',실크인쇄:'#EC4899',사무용품:'#0F766E',가죽가공:'#92400E',기타:'#4B5563'};
     body.innerHTML = `<div style="margin-bottom:14px;font-size:12px;color:var(--muted)">5월 세금계산서 작성월 기준 · 공급가액(VAT별도) · 제조유형별 합계 · 공급망_RAW '1. 제조유형' 필드 기준</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">${AMOUNT_RAW.type.map(r=>`
         <div style="background:var(--bg2);border-radius:6px;padding:14px 16px">
@@ -1225,3 +1160,6 @@ document.addEventListener('keydown', e => {
 </body>
 </html>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+
+
+
