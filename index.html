@@ -274,20 +274,20 @@
 
     <!-- 월 매입금액 -->
     <div class="kpi-card" onclick="openAmountModal('supplier')">
-      <div class="kpi-label">월 매입금액 <span style="font-size:9px;color:#aaa;font-weight:400;">6월 세금계산서·VAT별도 · 전월(5월) 532,477,810원 (추가 등록분 반영)</span></div>
+      <div class="kpi-label">월 매입금액 <span style="font-size:9px;color:#aaa;font-weight:400;">6월 세금계산서·VAT별도 · 전월(5월) 532,477,810원 (추가 등록분 반영) · <span style="color:var(--red);">v11: 엠알오즈(MROZ) 6월 등록분(35,168,550원) 반영 재집계</span></span></div>
       <div style="display:flex;align-items:baseline;gap:10px;margin-top:4px;">
-        <div class="kpi-val" style="font-size:24px;">398,237,694</div>
-        <div style="font-size:12px;font-weight:600;color:var(--blue);">MoM −25.2%</div>
-        <div style="font-size:12px;font-weight:600;color:var(--blue);">YoY −25.4% <span style="color:var(--green);">(재고제외 +3.1%)</span></div>
+        <div class="kpi-val" style="font-size:24px;">430,624,143</div>
+        <div style="font-size:12px;font-weight:600;color:var(--blue);">MoM −19.1%</div>
+        <div style="font-size:12px;font-weight:600;color:var(--blue);">YoY −19.3% <span style="color:var(--muted);">(재고제외 [확인필요])</span></div>
       </div>
       <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px;">
         <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;">
           <span style="color:var(--muted);">재고생산 제외</span>
-          <span style="font-weight:700;color:var(--dark);">327,232,241원 <span style="font-size:10px;color:var(--muted);">(82.2%)</span></span>
+          <span style="font-weight:700;color:var(--dark);">359,558,690원 <span style="font-size:10px;color:var(--muted);">(83.5%)</span></span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;">
           <span style="color:var(--muted);">재고생산분</span>
-          <span style="font-weight:700;color:var(--dark);">71,005,453원 <span style="font-size:10px;color:var(--muted);">(17.8%)</span></span>
+          <span style="font-weight:700;color:var(--dark);">71,065,453원 <span style="font-size:10px;color:var(--muted);">(16.5%)</span></span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;">
           <span style="color:var(--muted);">전년 동월(25.6)</span>
@@ -295,7 +295,7 @@
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;border-top:1px solid var(--line);padding-top:6px;">
           <span style="color:var(--muted);">상반기 누계</span>
-          <span style="font-weight:700;color:var(--dark);">3,216,045,854원 <span style="font-size:10px;color:var(--blue);">YoY −4.3%</span></span>
+          <span style="font-weight:700;color:var(--dark);">3,248,432,303원 <span style="font-size:10px;color:var(--muted);">YoY [확인필요]</span></span>
         </div>
       </div>
       <div class="kpi-hint" style="margin-top:14px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>매입금액 상세 분석 보기</div>
@@ -813,7 +813,7 @@ const FAILCOST = [
   {m:'5월',v:55100,v25:923395,tasks:'PNA51584_브랜드팝클리어키링_재제작_A2 (55,100)'},
   {m:'6월',v:0,v25:879150,tasks:'재제작 8건 전량 공급사 협의 무상 재제작 (사내 제작비 0원)',note:'웍스피어 NFC 키링 시안 오제작으로 매출에서 실패비용 발생(제품 전액 할인 1,940,000원) — 공급사와 협의하여 사내 제작비 0원'}
 ];
-const FAILCOST_TOTAL_PURCHASE_H1 = 3216045854;
+const FAILCOST_TOTAL_PURCHASE_H1 = 3248432303; // v11: 6월 매입 재집계 반영
 
 let currentTab = '품질이슈';
 
@@ -1111,30 +1111,30 @@ const PURCHASE_RAW = {
 const AMOUNT_RAW = {
   supplier: [
     {supplier:"(주)승화파트너스",amount:83345367,count:29,type:"턴키제작"},
-    {supplier:"주식회사 모아패키지",amount:32606201,count:22,type:"외주용역"},
+    {supplier:"엠알오즈(MROZ)",amount:35168550,count:32,type:"턴키제작"},
+    {supplier:"주식회사 모아패키지",amount:32683801,count:22,type:"외주용역"},
     {supplier:"주식회사 알리오코리아",amount:24972000,count:8,type:"턴키제작"},
     {supplier:"서울디지털인쇄협동조합",amount:21235900,count:339,type:"턴키제작"},
     {supplier:"(주)쉔코리아",amount:16770200,count:20,type:"턴키제작"},
     {supplier:"엘바 (ELVA)",amount:14635910,count:6,type:"단순구매"},
     {supplier:"(주)청산인쇄",amount:14421500,count:29,type:"외주용역"},
-    {supplier:"(주)아이아트텍스",amount:12960850,count:8,type:"턴키제작"},
     {supplier:"가온팩토리",amount:12844900,count:2,type:"턴키제작"},
     {supplier:"(주)명성",amount:10218546,count:6,type:"턴키제작"}
   ],
   type: [
-    {type:"패브릭",amount:142943481,count:77},{type:"테크",amount:95247586,count:65},{type:"옵셋인쇄",amount:55669561,count:58},{type:"디지털인쇄",amount:22797020,count:344},{type:"사무용품",amount:15443810,count:9},{type:"아크릴가공",amount:13010560,count:24},{type:"실크인쇄",amount:11887550,count:64},{type:"가죽가공",amount:8046600,count:18},{type:"기타",amount:7557118,count:4},{type:"생활용품",amount:7397018,count:16},{type:"드링크웨어",amount:5310220,count:20},{type:"방향",amount:5100000,count:5},{type:"UV평판인쇄",amount:3024200,count:4},{type:"패",amount:1808000,count:1},{type:"피규어",amount:1010000,count:1},{type:"세라믹전사인쇄",amount:732800,count:3},{type:"종자업",amount:690170,count:2},{type:"레이저인쇄",amount:382000,count:3},{type:"칠도금",amount:180000,count:1}
+    {type:"패브릭",amount:139496731,count:75},{type:"테크",amount:93722586,count:64},{type:"옵셋인쇄",amount:55747161,count:58},{type:"피규어",amount:36178550,count:33},{type:"디지털인쇄",amount:22797020,count:344},{type:"사무용품",amount:15443810,count:9},{type:"아크릴가공",amount:13010560,count:24},{type:"실크인쇄",amount:11887550,count:64},{type:"생활용품",amount:8293958,count:21},{type:"기타",amount:8098027,count:6},{type:"가죽가공",amount:8046600,count:18},{type:"방향",amount:6711200,count:7},{type:"드링크웨어",amount:5310220,count:20},{type:"패키지",amount:2087200,count:8},{type:"패",amount:1808000,count:1},{type:"세라믹전사인쇄",amount:732800,count:3},{type:"종자업",amount:690170,count:2},{type:"레이저인쇄",amount:382000,count:3},{type:"칠도금",amount:180000,count:1}
   ],
   product: [
     {product:"임팩트슬로건타월",amount:38046100,qty:13653},
     {product:"데일리짐색",amount:23210440,qty:3554},
-    {product:"데스크테리어 매트",amount:13672100,qty:2111},
+    {product:"브랜디드피규어키링",amount:14701200,qty:2822},
+    {product:"데스크테리어 매트",amount:12844900,qty:2007},
     {product:"Solid커스텀G형박스",amount:12480000,qty:16000},
     {product:"스펙트럼컬러펜(화이트.블랙잉크)",amount:12402273,qty:16050},
     {product:"에브리폴더블멀티충전기(화이트)",amount:11000000,qty:1000},
+    {product:"브랜디드피규어",amount:8739350,qty:3124},
     {product:"더블업트래블파우치+인쇄",amount:8470300,qty:710},
-    {product:"액티브스포츠타월",amount:8401550,qty:1362},
-    {product:"로고스트랩파우치+인쇄",amount:8118793,qty:1307},
-    {product:"칠링패드냉각선풍기(화이트)",amount:8000000,qty:1000}
+    {product:"로고스트랩파우치+인쇄",amount:8118793,qty:1307}
   ]
 };
 
@@ -1249,7 +1249,8 @@ function renderPurchaseBody() {
   }
 }
 
-const SUPPLIER_TREND = {"(주)승화파트너스":{y25:[29464486,46948633,55858696,40317809,50581428,59763164,53221152,51582052,64386365,83420878,31471336,40629259],y26:[23362300,21582149,18627148,49842694,34783183,83345367]},"주식회사 모아패키지":{y25:[3181500,6759650,16972600,11450300,26732000,6519950,11379900,14449000,20277300,16815600,10780210,22941150],y26:[11318600,1852400,16009800,13783150,15093510,32606201]},"주식회사 알리오코리아":{y25:[11860181,19220001,15963654,10398509,14016000,19182655,10806472,13049636,17294997,5246181,8573909,3991728],y26:[7784000,6205854,8896818,4935545,5140000,24972000]},"서울디지털인쇄협동조합":{y25:[10644540,14506920,13282950,25875810,10673000,13566350,15054970,15932090,19687120,24344494,31884130,27546610],y26:[20974260,16857965,25080460,20831390,18547410,21235900]},"(주)쉔코리아":{y25:[0,0,25909091,25909091,33261816,33378548,0,18142272,14673909,0,10800000,18000000],y26:[7200000,18000000,13500000,50758182,9820300,16770200]},"엘바 (ELVA)":{y25:[5532546,7827999,7828910,4514182,1439273,2049637,14659001,2357091,7539819,3833134,8503091,2029459],y26:[7092816,12479272,3844911,1818182,1773092,14635910]},"(주)청산인쇄":{y25:[33398050,32484100,38725500,59449400,21795500,29335700,34164200,47069100,84848219,118529610,130151530,123698310],y26:[16504258,58222620,41283460,16169000,20456700,14421500]},"(주)아이아트텍스":{y25:[1287600,7222250,7197000,7985600,6975700,9568250,5956930,10939750,14381650,948350,7467550,6330400],y26:[2316250,3219200,1135650,7434950,4958450,12960850]},"가온팩토리":{y25:[0,765900,0,1393800,0,1393800,0,0,2743700,2046800,4409400,696900],y26:[856000,696900,696900,2080800,2218800,12844900]},"(주)명성":{y25:[0,4356817,6886364,11626545,11525364,13404637,8329999,18489362,21965182,9941274,4647184,4444091],y26:[3593182,1348636,14785819,1061364,6687819,10218546]}};
+const SUPPLIER_TREND = {"(주)승화파트너스":{y25:[29464486,46948633,55858696,40317809,50581428,59763164,53221152,51582052,64386365,83420878,31471336,40629259],y26:[23362300,21582149,18627148,49842694,34783183,83345367]},"주식회사 모아패키지":{y25:[3181500,6759650,16972600,11450300,26732000,6519950,11379900,14449000,20277300,16815600,10780210,22941150],y26:[11318600,1852400,16009800,13783150,15093510,32683801]},"주식회사 알리오코리아":{y25:[11860181,19220001,15963654,10398509,14016000,19182655,10806472,13049636,17294997,5246181,8573909,3991728],y26:[7784000,6205854,8896818,4935545,5140000,24972000]},"서울디지털인쇄협동조합":{y25:[10644540,14506920,13282950,25875810,10673000,13566350,15054970,15932090,19687120,24344494,31884130,27546610],y26:[20974260,16857965,25080460,20831390,18547410,21235900]},"(주)쉔코리아":{y25:[0,0,25909091,25909091,33261816,33378548,0,18142272,14673909,0,10800000,18000000],y26:[7200000,18000000,13500000,50758182,9820300,16770200]},"엘바 (ELVA)":{y25:[5532546,7827999,7828910,4514182,1439273,2049637,14659001,2357091,7539819,3833134,8503091,2029459],y26:[7092816,12479272,3844911,1818182,1773092,14635910]},"(주)청산인쇄":{y25:[33398050,32484100,38725500,59449400,21795500,29335700,34164200,47069100,84848219,118529610,130151530,123698310],y26:[16504258,58222620,41283460,16169000,20456700,14421500]},"가온팩토리":{y25:[0,765900,0,1393800,0,1393800,0,0,2743700,2046800,4409400,696900],y26:[856000,696900,696900,2080800,2218800,12844900]},"(주)명성":{y25:[0,4356817,6886364,11626545,11525364,13404637,8329999,18489362,21965182,9941274,4647184,4444091],y26:[3593182,1348636,14785819,1061364,6687819,10218546]}};
+// [확인필요] 엠알오즈(MROZ) 6월 Top10 신규 진입 — 2025년 발주 raw 없어 y25 트렌드 데이터 미보유 (클릭 시 "데이터 없음" 표시됨)
 
 let currentAmountTab = 'supplier';
 function openAmountModal(tab) {
@@ -1346,7 +1347,7 @@ function renderAmountBody() {
         <td style="font-size:12px">${r.count}건</td>
         <td style="min-width:130px"><div style="display:flex;align-items:center;gap:6px"><div style="flex:1;height:6px;background:var(--line);border-radius:3px"><div style="height:100%;width:${Math.round(r.amount/maxA*100)}%;background:var(--green);border-radius:3px"></div></div><span style="font-size:10px;color:var(--muted);white-space:nowrap">${(r.amount/totalAmt*100).toFixed(1)}%</span></div></td>
       </tr>`).join('')}</tbody></table>
-      <div class="modal-source">📂 출처: task-SCMKPI_Raw.csv + 공급망_RAW(2026).csv — 수주처×제조유형 조인 | 세금계산서 6월 작성분 공급가액 합계 398,237,694원(VAT별도, 재고생산 포함)</div>`;
+      <div class="modal-source">📂 출처: order.csv(GitHub SCMDASHBOARD) + sup.csv — 수주처×제조유형 조인 | 세금계산서 6월 작성분 공급가액 합계 430,624,143원(VAT별도, 재고생산 포함) · v11 재집계</div>`;
   } else if (currentAmountTab === 'type') {
     const maxA = AMOUNT_RAW.type[0].amount;
     const tc = {패브릭:'#7C3AED',드링크웨어:'#0891B2',테크:'#1D4ED8',옵셋인쇄:'#059669',피규어:'#D97706',디지털인쇄:'#6366F1',실크인쇄:'#EC4899',사무용품:'#0F766E',가죽가공:'#92400E',기타:'#4B5563'};
@@ -1425,13 +1426,4 @@ function openTierModal(t) {
 }
 function closeTierModal() {
   document.getElementById('tierModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', e => { if (e.key==='Escape') closeTierModal(); });
-</script>
-</body>
-</html>
-
-
-
-
+  document.body.
