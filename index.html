@@ -255,10 +255,148 @@
 </div>
 
 
-<!-- ① KPI 자동 집계 -->
+<!-- ① 업무 R&R · 지표 고도화 로드맵 -->
 <div class="section fade-in d2">
   <div class="section-header">
     <div class="section-num">01</div>
+    <div class="section-title">업무 R&amp;R · 지표 고도화 로드맵</div>
+    <span class="section-tag tag-wip">진행 중</span>
+  </div>
+
+  <div class="goal-banner">
+    <div class="goal-banner-icon">🎯</div>
+    <div>
+      <div class="goal-banner-label">공유 취지</div>
+      <div class="goal-banner-text">현재 집계 중인 지표는 개인이 에어테이블에서 수기로 관리하던 것을 자동집계로 전환해온 결과물입니다. 아직 한계가 있는 지표도 있지만, 지금까지의 운영 워크플로우·R&amp;R을 있는 그대로 공유드리고 앞으로 실무에 더 의미 있는 KPI로 함께 고도화해 나가려 합니다. 다음 달 목표 지표는 팀 내 논의를 거쳐 실현 가능한 수준으로 확정해 발표하겠습니다.</div>
+    </div>
+  </div>
+
+  <!-- 워크플로우 도식 -->
+  <div style="margin-bottom:40px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:16px;">현황 워크플로우 · 단계별 문제점</div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;align-items:stretch;">
+
+      <div style="display:flex;flex-direction:column;">
+        <div style="border:1.5px solid var(--blue);border-radius:6px 6px 0 0;padding:14px 16px;background:var(--blue-light);">
+          <div style="font-size:9px;font-weight:700;color:var(--blue);letter-spacing:0.5px;">STEP 1 · 운영품질</div>
+          <div style="font-size:13px;font-weight:700;color:var(--dark);margin-top:4px;">체크파이널 검토</div>
+          <div style="font-size:10.5px;color:var(--mid);margin-top:6px;line-height:1.5;">견적-아이템 사양 일치 확인, 셰르파 자재·공정 투입 여부 체크</div>
+        </div>
+        <div style="border:1px solid var(--line);border-top:none;border-radius:0 0 6px 6px;padding:12px 14px;background:#fff;flex:1;">
+          <div style="font-size:9.5px;font-weight:700;color:var(--red);">⚠ 문제점</div>
+          <div style="font-size:10.5px;color:var(--mid);margin-top:4px;line-height:1.5;">오류유형·건수는 집계되나 체크파이널 완료→정상 TASK 전환율(발주전환률) 미측정</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center;padding:0 4px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+      <div style="display:flex;flex-direction:column;">
+        <div style="border:1.5px solid var(--blue);border-radius:6px 6px 0 0;padding:14px 16px;background:var(--blue-light);">
+          <div style="font-size:9px;font-weight:700;color:var(--blue);letter-spacing:0.5px;">STEP 2 · 운영품질</div>
+          <div style="font-size:13px;font-weight:700;color:var(--dark);margin-top:4px;">TASK 생성</div>
+          <div style="font-size:10.5px;color:var(--mid);margin-top:6px;line-height:1.5;">체크파이널 통과 건 자동 TASK화, 비스포크 등 예외건은 수동 생성</div>
+        </div>
+        <div style="border:1px solid var(--line);border-top:none;border-radius:0 0 6px 6px;padding:12px 14px;background:#fff;flex:1;">
+          <div style="font-size:9.5px;font-weight:700;color:var(--red);">⚠ 문제점</div>
+          <div style="font-size:10.5px;color:var(--mid);margin-top:4px;line-height:1.5;">예외 발주는 자동 생성 안 돼 누락 리스크 → 6월 슬랙 알람으로 개선 시도했으나 효과 측정 지표 없음</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center;padding:0 4px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+      <div style="display:flex;flex-direction:column;">
+        <div style="border:1.5px solid var(--blue);border-radius:6px 6px 0 0;padding:14px 16px;background:var(--blue-light);">
+          <div style="font-size:9px;font-weight:700;color:var(--blue);letter-spacing:0.5px;">STEP 3 · 정산</div>
+          <div style="font-size:13px;font-weight:700;color:var(--dark);margin-top:4px;">발주 · 단가 적용</div>
+          <div style="font-size:10.5px;color:var(--mid);margin-top:6px;line-height:1.5;">협력사향 발주 확정, 코스트베이스 계약단가 적용</div>
+        </div>
+        <div style="border:1px solid var(--line);border-top:none;border-radius:0 0 6px 6px;padding:12px 14px;background:#fff;flex:1;">
+          <div style="font-size:9.5px;font-weight:700;color:var(--red);">⚠ 문제점</div>
+          <div style="font-size:10.5px;color:var(--mid);margin-top:4px;line-height:1.5;">계약단가(코스트베이스) 대비 실제 매입단가 괴리를 건별로 자동비교하는 지표 없음</div>
+        </div>
+      </div>
+
+      <div style="grid-column:1/6;display:flex;justify-content:center;padding:6px 0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2" style="transform:rotate(90deg);"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+      <div style="display:flex;flex-direction:column;grid-column:1/4;">
+        <div style="border:1.5px solid var(--blue);border-radius:6px 6px 0 0;padding:14px 16px;background:var(--blue-light);">
+          <div style="font-size:9px;font-weight:700;color:var(--blue);letter-spacing:0.5px;">STEP 4 · 운영품질</div>
+          <div style="font-size:13px;font-weight:700;color:var(--dark);margin-top:4px;">물류 인계 · 입고·자재준비·패키징·출고</div>
+          <div style="font-size:10.5px;color:var(--mid);margin-top:6px;line-height:1.5;">자재위치 변경 반영, 조립산출·투입내역에 따른 오더 추가</div>
+        </div>
+        <div style="border:1px solid var(--line);border-top:none;border-radius:0 0 6px 6px;padding:12px 14px;background:#fff;flex:1;">
+          <div style="font-size:9.5px;font-weight:700;color:var(--red);">⚠ 문제점</div>
+          <div style="font-size:10.5px;color:var(--mid);margin-top:4px;line-height:1.5;">기존엔 자재위치 변경이 발주담당자에게 수동 전달돼 누락 리스크 → 6월 슬랙 알람으로 개선. 물류 핸드오프 소요 리소스는 미집계</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center;padding:0 4px;grid-column:4/5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+      <div style="display:flex;flex-direction:column;grid-column:5/6;">
+        <div style="border:1.5px solid var(--blue);border-radius:6px 6px 0 0;padding:14px 16px;background:var(--blue-light);">
+          <div style="font-size:9px;font-weight:700;color:var(--blue);letter-spacing:0.5px;">STEP 5 · 품질·협력사</div>
+          <div style="font-size:13px;font-weight:700;color:var(--dark);margin-top:4px;">납품 후 품질관리 · 협력사 등급</div>
+          <div style="font-size:10.5px;color:var(--mid);margin-top:6px;line-height:1.5;">이슈·미입하·실패비용 집계, QCD 등급화</div>
+        </div>
+        <div style="border:1px solid var(--line);border-top:none;border-radius:0 0 6px 6px;padding:12px 14px;background:#fff;flex:1;">
+          <div style="font-size:9.5px;font-weight:700;color:var(--red);">⚠ 문제점</div>
+          <div style="font-size:10.5px;color:var(--mid);margin-top:4px;line-height:1.5;">실패비용은 <strong>추가 발생한 외주 재제작비만 집계</strong> — 매출할인, 불량 전량검수비, 재임가공비, 물류 회수·재출고비 등 실제 발생 비용 다수가 빠져 있음. 등급 C(원가)축에 괴리율 미반영, 의존도·재무안정성 지표 없음</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="border:1px solid var(--blue);border-radius:4px;overflow:hidden;margin-bottom:40px;">
+    <div style="background:var(--blue-light);padding:14px 24px;border-bottom:1px solid var(--blue);display:flex;align-items:center;gap:10px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span style="font-size:10px;font-weight:700;letter-spacing:1px;color:var(--blue);">추가 R&amp;R · 기출시 제품 리뉴얼 PM</span>
+    </div>
+    <div style="padding:20px 24px;">
+      <div style="font-size:12.5px;color:var(--mid);line-height:1.7;">위 5단계 발주 흐름과 별개로, 이미 출시된 제품이 <strong>협력사 변경·품질 저하·단종·사양 변경</strong> 등으로 <strong>리뉴얼</strong>이 필요할 때 PM 역할을 맡아 공급이 끊기지 않도록 유지하는 업무를 진행하고 있습니다. 대체 협력사 검증(섹션 02 협력사 변경 검토와 연계), 기존 재고 소진 일정 조율, 신규 사양 반영까지 전 과정을 담당하지만, 이 PM 업무의 진행 건수·소요 리소스를 별도로 집계하는 지표는 아직 없습니다.</div>
+    </div>
+  </div>
+
+  <div class="three-col">
+    <div>
+      <div class="col-label col-label-amber">계획 (제안 — 신규 수집 지표)</div>
+      <div class="item-list">
+        <div class="list-item"><span class="list-mark mark-amber"></span>[운영품질] 슬랙 알람 발생·담당자 대응완료 건수/소요시간 집계 → 대응률·오류방지 효과 산출</div>
+        <div class="list-item"><span class="list-mark mark-amber"></span>[운영품질] 체크파이널_RAW에 "TASK 생성 성공 여부" 필드 신설 → 발주전환률 산출</div>
+        <div class="list-item"><span class="list-mark mark-amber"></span>[정산] 발주 건별 매입단가와 코스트베이스 단가를 품목코드+수량구간 키로 자동매칭</div>
+        <div class="list-item"><span class="list-mark mark-amber"></span>[정산] 코스트베이스 단가 변경이력(적용일자) 확보 → 괴리율 시점별 비교 및 임계치 자동 플래그</div>
+        <div class="list-item"><span class="list-mark mark-amber"></span>[품질] 이슈_RAW에 원인유형(설계/제조/검수기준/기타) 컬럼 신설</div>
+        <div class="list-item"><span class="list-mark mark-amber"></span>[품질] 실패비용 범위 확장 — 매출할인, 불량 전량검수비, 재임가공비, 물류 회수·재출고비 등 필드화 (현재는 추가 발생한 외주 재제작비만 집계)</div>
+        <div class="list-item"><span class="list-mark mark-amber"></span>[협력사관리] 코스트베이스 괴리율을 QCD 등급 C(원가)축 산식에 반영</div>
+        <div class="list-item"><span class="list-mark mark-amber"></span>[협력사관리] 협력사별 매입 집중률(의존도) 자동계산 필드 및 재무안정성 외부데이터 연동 검토</div>
+        <div class="list-item"><span class="list-mark mark-amber"></span>[협력사관리] 제품 리뉴얼 PM 업무(대체협력사 검증·재고소진 조율·사양반영) 진행 건수·소요 리소스 집계 신설</div>
+      </div>
+    </div>
+    <div>
+      <div class="col-label col-label-blue">실행 (진행 중)</div>
+      <div class="item-list">
+        <div class="list-item"><span class="list-mark mark-blue"></span>제안 지표 중 실현 가능한 항목 팀 내 논의 — 8월 리포트에 목표 지표로 확정 발표 예정</div>
+      </div>
+    </div>
+    <div>
+      <div class="col-label col-label-green">완료 (6월)</div>
+      <div class="item-list">
+        <div class="list-item"><span class="list-mark mark-green"></span><strong>비스포크 발주 슬랙 알람 신설</strong> — 비스포크 발주 접수 시 슬랙 알람으로 수동 TASK 생성 알림 발송</div>
+        <div class="list-item"><span class="list-mark mark-green"></span><strong>자재위치 변경 슬랙 알람 신설</strong> — 입고 자재 위치 변경 시 발주담당자에게 알람 → 자재위치 수정 + 조립산출·투입내역 오더 추가 안내</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-strip">
+    💡 <strong>6월 신설한 슬랙 알람 2건은 시행 효과(오류 방지 건수)를 측정할 지표가 아직 없고, 현재 실패비용 KPI도 외주 재제작비만 집계되어 매출할인·전량검수비·재임가공비·물류 회수비 등 실제 실패비용의 일부만 보여주고 있습니다.</strong> 제품 리뉴얼 PM 업무처럼 지표화되지 않은 R&amp;R도 있습니다. 위 "계획" 항목을 포함해 이번 달 정리한 4개 영역(운영품질·정산·품질·협력사관리)의 신규 수집 지표를 팀 내에서 논의한 뒤 다음 달 실현 가능한 수준의 목표 지표로 확정해 발표하겠습니다.
+  </div>
+</div>
+
+
+<!-- ② KPI 자동 집계 -->
+<div class="section fade-in d3">
+  <div class="section-header">
+    <div class="section-num">02</div>
     <div class="section-title">KPI 자동 집계</div>
     <span class="section-tag tag-done">완료</span>
   </div>
@@ -447,10 +585,10 @@
 </div>
 
 
-<!-- ② 협력사 변경 검토 대시보드 -->
-<div class="section fade-in d3">
+<!-- ③ 협력사 관리 -->
+<div class="section fade-in d4">
   <div class="section-header">
-    <div class="section-num">02</div>
+    <div class="section-num">03</div>
     <div class="section-title">협력사 관리</div>
     <span class="section-tag tag-done">완료</span>
   </div>
@@ -622,10 +760,10 @@
 </div>
 
 
-<!-- ③ 공급망 재배치 -->
-<div class="section fade-in d4">
+<!-- ④ 공급망 재배치 · 협력사 이관 -->
+<div class="section fade-in d5">
   <div class="section-header">
-    <div class="section-num">03</div>
+    <div class="section-num">04</div>
     <div class="section-title">공급망 재배치 · 협력사 이관</div>
     <span class="section-tag tag-done">완료</span>
   </div>
@@ -704,10 +842,10 @@
 </div>
 
 
-<!-- ④ 하도급법 · 보관재고 관리 대행 -->
-<div class="section fade-in d5">
+<!-- ⑤ 하도급법 · 보관재고 관리 대행 -->
+<div class="section fade-in d6">
   <div class="section-header">
-    <div class="section-num">04</div>
+    <div class="section-num">05</div>
     <div class="section-title">하도급법 · 보관재고 관리 대행</div>
     <span class="section-tag tag-wip">진행 중</span>
   </div>
@@ -786,10 +924,10 @@
 </div>
 
 
-<!-- ⑤ AX 업무 전환 -->
-<div class="section fade-in d6">
+<!-- ⑥ AX 이니셔티브 진행사항 -->
+<div class="section fade-in d7">
   <div class="section-header">
-    <div class="section-num">05</div>
+    <div class="section-num">06</div>
     <div class="section-title">AX 이니셔티브 진행사항</div>
     <span class="section-tag tag-wip">진행 중</span>
   </div>
@@ -1788,24 +1926,4 @@ function renderFormalEvalBody() {
   const desc = currentMgmtFilter==='ALL' ? '2Q(4~6월) 기준 135개사 정식 평가 — QCD(TASK·매입대금·이슈대응, 9점) × 관계(예외사항·대체가능여부, 6점) 2축' : MGMT_META[currentMgmtFilter].desc;
   body.innerHTML = `<div style="margin-bottom:12px;display:flex;gap:8px;flex-wrap:wrap;">${tabsHtml}</div>
     <div style="margin-bottom:12px;font-size:12px;color:var(--muted)">${desc}</div>
-    <table class="m-table">
-      <thead><tr><th>#</th><th>협력사</th>${th('qcd','QCD(9)')}${th('rel','관계(6)')}<th>등급</th><th>관리유형</th><th>발주건(2Q)</th><th>이슈율</th><th>미입하율</th></tr></thead>
-      <tbody>${rows.map((r,i)=>`<tr>
-        <td style="color:var(--muted);font-weight:700">${i+1}</td>
-        <td class="bold">${r.name}${r.forced?'<div style="margin-top:2px"><span style="font-size:9px;font-weight:700;color:var(--red);background:#FEE2E2;padding:1px 5px;border-radius:2px;">분기발주0건</span></div>':''}</td>
-        <td style="${sk==='qcd'?'font-weight:800;color:var(--blue);':''}">${r.qcd}/9</td>
-        <td style="${sk==='rel'?'font-weight:800;color:var(--blue);':''}">${r.rel}/6</td>
-        <td><span style="font-weight:800;color:${r.grade==='A'?'var(--green)':r.grade==='D'?'var(--red)':'var(--dark)'}">${r.grade}</span></td>
-        <td><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;background:${MGMT_META[r.mgmt].color}22;color:${MGMT_META[r.mgmt].color}">${MGMT_META[r.mgmt].label}</span></td>
-        <td style="font-size:12px;color:var(--mid)">${r.task}건</td>
-        <td style="font-size:12px">${r.issueRate!=null?r.issueRate+'%':'—'}</td>
-        <td style="font-size:12px">${r.missedRate!=null?r.missedRate+'%':'—'}</td>
-      </tr>`).join('')}</tbody>
-    </table>
-    <div style="margin-top:8px;font-size:10px;color:var(--muted);">※ QCD=TASK점수+매입대금점수+이슈대응점수(이슈율70%+미입하율30% 가중). 관계=예외사항+대체가능여부(공급망_분기별평가 CSV, 결측 시 1점 처리). 분기 발주 0건 협력사는 D등급 고정.</div>
-    <div class="modal-source">📂 출처: 발주raw2026.csv(2Q 과업지시일자) × KPI_이슈_RAW(2026).csv × 공급망_분기별평가(2026).csv(예외사항·대체가능여부) — 154개사 중 공급망_RAW 마스터(146개사) 매칭 135개사</div>`;
-}
-document.addEventListener('keydown', e => { if (e.key==='Escape') closeTierModal(); });
-</script>
-</body>
-</html>
+    <table class="m
