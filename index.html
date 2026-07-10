@@ -1918,4 +1918,24 @@ function renderFormalEvalBody() {
   const desc = currentMgmtFilter==='ALL' ? '2Q(4~6월) 기준 135개사 정식 평가 — QCD(TASK·매입대금·이슈대응, 9점) × 관계(예외사항·대체가능여부, 6점) 2축' : MGMT_META[currentMgmtFilter].desc;
   body.innerHTML = `<div style="margin-bottom:12px;display:flex;gap:8px;flex-wrap:wrap;">${tabsHtml}</div>
     <div style="margin-bottom:12px;font-size:12px;color:var(--muted)">${desc}</div>
-    <table class="m
+    <table class="m-table">
+      <thead><tr><th>#</th><th>협력사</th>${th('qcd','QCD(9)')}${th('rel','관계(6)')}<th>등급</th><th>관리유형</th><th>발주건(2Q)</th><th>이슈율</th><th>미입하율</th></tr></thead>
+      <tbody>${rows.map((r,i)=>`<tr>
+        <td style="color:var(--muted);font-weight:700">${i+1}</td>
+        <td class="bold">${r.name}${r.forced?'<div style="margin-top:2px"><span style="font-size:9px;font-weight:700;color:var(--red);background:#FEE2E2;padding:1px 5px;border-radius:2px;">분기발주0건</span></div>':''}</td>
+        <td style="${sk==='qcd'?'font-weight:800;color:var(--blue);':''}">${r.qcd}/9</td>
+        <td style="${sk==='rel'?'font-weight:800;color:var(--blue);':''}">${r.rel}/6</td>
+        <td><span style="font-weight:800;color:${r.grade==='A'?'var(--green)':r.grade==='D'?'var(--red)':'var(--dark)'}">${r.grade}</span></td>
+        <td><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;background:${MGMT_META[r.mgmt].color}22;color:${MGMT_META[r.mgmt].color}">${MGMT_META[r.mgmt].label}</span></td>
+        <td style="font-size:12px;color:var(--mid)">${r.task}건</td>
+        <td style="font-size:12px">${r.issueRate!=null?r.issueRate+'%':'—'}</td>
+        <td style="font-size:12px">${r.missedRate!=null?r.missedRate+'%':'—'}</td>
+      </tr>`).join('')}</tbody>
+    </table>
+    <div style="margin-top:8px;font-size:10px;color:var(--muted);">※ QCD=TASK점수+매입대금점수+이슈대응점수(이슈율70%+미입하율30% 가중). 관계=예외사항+대체가능여부(공급망_분기별평가 CSV, 결측 시 1점 처리). 분기 발주 0건 협력사는 D등급 고정.</div>
+    <div class="modal-source">📂 출처: 발주raw2026.csv(2Q 과업지시일자) × KPI_이슈_RAW(2026).csv × 공급망_분기별평가(2026).csv(예외사항·대체가능여부) — 154개사 중 공급망_RAW 마스터(146개사) 매칭 135개사</div>`;
+}
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeTierModal(); });
+</script>
+</body>
+</html>
